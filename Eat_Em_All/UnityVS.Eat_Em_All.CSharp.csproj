@@ -56,7 +56,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Eat_Em_All\Scripts\Menu\PositioningOfGuiElements.cs" />
+    <Compile Include="Assets\Eat_Em_All\Scripts\Game\Score.cs" />
     <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
     <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Only.shader" />
     <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Reflective.shader" />
