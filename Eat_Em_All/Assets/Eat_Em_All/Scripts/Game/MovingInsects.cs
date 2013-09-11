@@ -39,7 +39,8 @@ namespace Assets.Eat_Em_All.Scripts.Game
         {
             for (byte i = 0; i < _moveToCoords.Length; i++)
             {
-                MovingObjectsArr[i].transform.position = new Vector3(_moveToCoords[i].x * Time.deltaTime * speed, _moveToCoords[i].y * Time.deltaTime * speed, MovingObjectsArr[i].transform.position.z);
+                MovingObjectsArr[i].transform.position = new Vector3(_moveToCoords[i].x*Time.deltaTime*speed,
+                    _moveToCoords[i].y*Time.deltaTime*speed, MovingObjectsArr[i].transform.position.z);
             }
         }
     }
