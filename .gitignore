@@ -6,6 +6,7 @@ Library/*
 *.sln
 *.userprefs
 Temp
+Temp/*
 *.pidb
 Build
 *.cache
