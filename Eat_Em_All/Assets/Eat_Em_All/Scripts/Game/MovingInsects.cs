@@ -4,17 +4,16 @@ namespace Assets.Eat_Em_All.Scripts.Game
 {
     public class MovingInsects : MonoBehaviour
     {
+        public float Speed = 100;
+
         private void Update()
         {
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                Move();
-            }
+            Move();
         }
 
         private void Move()
         {
-            transform.Translate(Vector3.forward);
+            transform.Translate(Vector3.left * Time.deltaTime * Speed);
         }
     }
 }
