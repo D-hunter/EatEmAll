@@ -1,0 +1,10 @@
+D:\EatEmAllGame\Eat_Em_All\Temp\bin\Debug\UnityVS.Eat_Em_All.CSharp.dll
+D:\EatEmAllGame\Eat_Em_All\Temp\bin\Debug\UnityVS.Eat_Em_All.CSharp.pdb
+D:\EatEmAllGame\Eat_Em_All\Temp\bin\Debug\UnityEditor.dll
+D:\EatEmAllGame\Eat_Em_All\Temp\bin\Debug\UnityEngine.dll
+D:\EatEmAllGame\Eat_Em_All\Temp\bin\Debug\Mono.Cecil.dll
+D:\EatEmAllGame\Eat_Em_All\Temp\bin\Debug\nunit.framework.dll
+D:\EatEmAllGame\Eat_Em_All\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+D:\EatEmAllGame\Eat_Em_All\obj\Debug\UnityVS.Eat_Em_All.CSharp.csprojResolveAssemblyReference.cache
+D:\EatEmAllGame\Eat_Em_All\obj\Debug\UnityVS.Eat_Em_All.CSharp.dll
+D:\EatEmAllGame\Eat_Em_All\obj\Debug\UnityVS.Eat_Em_All.CSharp.pdb
