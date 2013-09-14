@@ -9,4 +9,5 @@ Temp
 Temp/*
 *.pidb
 Build
-*.cache
+**.cache
+**.v11.suo

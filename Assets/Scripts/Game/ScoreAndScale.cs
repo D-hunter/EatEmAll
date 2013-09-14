@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Eat_Em_All.Scripts.Game
+namespace Assets.Scripts.Game
 {
     public class ScoreAndScale : MonoBehaviour
     {
