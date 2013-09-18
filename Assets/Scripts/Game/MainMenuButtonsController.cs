@@ -50,7 +50,6 @@ namespace Assets.Scripts.Game
         {
             if (Play.HitTest(_touch.position) && !isPlay)
             {
-                Debug.Log("Play");
                 Application.LoadLevel(1);
             }
         }
@@ -59,7 +58,6 @@ namespace Assets.Scripts.Game
         {
             if (Exit.HitTest(_touch.position) && !isExit)
             {
-                Debug.Log("Exit");
                 Application.Quit();
             }
         }
