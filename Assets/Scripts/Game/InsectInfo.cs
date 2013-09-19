@@ -2,9 +2,13 @@
 
 namespace Assets.Scripts.Game
 {
-    public class MovingInsects : MonoBehaviour
+    public class InsectInfo : MonoBehaviour
     {
         public float Speed = 100;
+		public byte OnEatScoreAdd = 1;
+		public int OnEatSatietyAdd = 1;
+		public int OnDestroySatietySub = -1;
+		public byte OnDestroyScoreAdd = 0;
 
         private void Update()
         {
