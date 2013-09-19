@@ -14,9 +14,9 @@ namespace Assets.Scripts.Game
         public Texture2D ResumeActive;
         public Texture2D ResumePassive;
 
-        private bool isOpen = false;
-        private bool isToMenu = false;
-        private bool isResume = false;
+        private bool _isOpen = false;
+        private bool _isToMenu = false;
+        private bool _isResume = false;
 
         private float _screenWidth;
         private float _screenHeight;
@@ -32,6 +32,7 @@ namespace Assets.Scripts.Game
         {
             _screenWidth = Screen.width;
             _screenHeight = Screen.height;
+            ShowButtons();
             CalibratePosition();
             HandleTap();
         }
@@ -53,30 +54,41 @@ namespace Assets.Scripts.Game
 
         private void OpenButton()
         {
-            if (Open.HitTest(_touch.position) && !isOpen)
+            if (Open.HitTest(_touch.position) && !_isOpen)
             {
-                isOpen = true;
+                _isOpen = true;
+                ToMenuButton();
+                ResumeButton();
+                Time.timeScale = 0;
             }
         }
 
         private void ToMenuButton()
         {
-            if (ToMenu.HitTest(_touch.position) && !isToMenu)
+            if (ToMenu.HitTest(_touch.position))
             {
+                Debug.Log("ToMenu");
+                _isOpen = false;
+                Time.timeScale = 1;
                 Application.LoadLevel(0);
             }
         }
 
         private void ResumeButton()
         {
-            
+            if (Resume.HitTest(_touch.position))
+            {
+                Debug.Log("ToMenu");
+                _isOpen = false;
+                Time.timeScale = 1;
+            }
         }
 
         private void SetTextures()
         {
-            Open.guiTexture.texture = !isOpen ? OpenPassive : OpenActive;
-            ToMenu.guiTexture.texture = !isToMenu ? ToMenuPassive : ToMenuActive;
-            Resume.guiTexture.texture = !isResume ? ResumePassive : ResumeActive;
+            Open.guiTexture.texture = !_isOpen ? OpenPassive : OpenActive;
+            ToMenu.guiTexture.texture = !_isToMenu ? ToMenuPassive : ToMenuActive;
+            Resume.guiTexture.texture = !_isResume ? ResumePassive : ResumeActive;
         }
 
         private void CalibratePosition()
@@ -91,8 +103,24 @@ namespace Assets.Scripts.Game
             Resume.transform.position = Vector3.zero;
 
             Open.pixelInset = new Rect(_screenWidth * 0.08f, _screenHeight * 0.8f, 64, 64);
-            ToMenu.pixelInset = new Rect(_screenWidth/2, _screenHeight/1.7f, 64, 64);
+            ToMenu.pixelInset = new Rect(_screenWidth * 0.08f, _screenHeight/1.7f, 64, 64);
             Resume.pixelInset = new Rect(ToMenu.pixelInset.x, ToMenu.pixelInset.y - _screenHeight/4, 64, 64);
+        }
+
+        private void ShowButtons()
+        {
+            if (!_isOpen)
+            {
+                Open.enabled = true;
+                ToMenu.enabled = false;
+                Resume.enabled = false;
+            }
+            else
+            {
+                Open.enabled = false;
+                ToMenu.enabled = true;
+                Resume.enabled = true;
+            }
         }
     }
 }

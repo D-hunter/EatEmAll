@@ -176,6 +176,56 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!1 &297155177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 297155178}
+  - 114: {fileID: 297155179}
+  m_Layer: 0
+  m_Name: Buttons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &297155178
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 297155177}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 905555121}
+  - {fileID: 422839608}
+  - {fileID: 1480679186}
+  m_Father: {fileID: 0}
+--- !u!114 &297155179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 297155177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 436941c29ca8b3946bb8aa199e90ed43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Open: {fileID: 905555122}
+  OpenActive: {fileID: 0}
+  OpenPassive: {fileID: 2800000, guid: c17552a4914f52643a649644c9594047, type: 3}
+  ToMenu: {fileID: 422839609}
+  ToMenuActive: {fileID: 0}
+  ToMenuPassive: {fileID: 2800000, guid: b831cc169b0bc904a96cde4e51d0fcf3, type: 3}
+  Resume: {fileID: 1480679187}
+  ResumeActive: {fileID: 0}
+  ResumePassive: {fileID: 2800000, guid: c17552a4914f52643a649644c9594047, type: 3}
 --- !u!1 &314246400
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,6 +319,52 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!1 &422839607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 422839608}
+  - 131: {fileID: 422839609}
+  m_Layer: 0
+  m_Name: ToMenuButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &422839608
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 422839607}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 297155178}
+--- !u!131 &422839609
+GUITexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 422839607}
+  m_Enabled: 1
+  m_Texture: {fileID: 0}
+  m_Color: {r: .5, g: .5, b: .5, a: .5}
+  m_PixelInset:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  m_LeftBorder: 0
+  m_RightBorder: 0
+  m_TopBorder: 0
+  m_BottomBorder: 0
 --- !u!1 &501629292
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,6 +507,52 @@ MonoBehaviour:
   Insects:
   - {fileID: 100000, guid: f3f46b03f0f2b21419073ed5ad62de77, type: 2}
   - {fileID: 100000, guid: 4560f751ed63b7142800657746b71db9, type: 2}
+--- !u!1 &905555120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 905555121}
+  - 131: {fileID: 905555122}
+  m_Layer: 0
+  m_Name: MenuButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &905555121
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 905555120}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 297155178}
+--- !u!131 &905555122
+GUITexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 905555120}
+  m_Enabled: 1
+  m_Texture: {fileID: 0}
+  m_Color: {r: .5, g: .5, b: .5, a: .5}
+  m_PixelInset:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  m_LeftBorder: 0
+  m_RightBorder: 0
+  m_TopBorder: 0
+  m_BottomBorder: 0
 --- !u!1001 &993106254
 Prefab:
   m_ObjectHideFlags: 0
@@ -464,6 +606,7 @@ GameObject:
   - 124: {fileID: 1031195553}
   - 81: {fileID: 1031195552}
   - 114: {fileID: 1031195558}
+  - 114: {fileID: 1031195557}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -512,7 +655,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 200
+  orthographic size: 247.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -531,6 +674,19 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &1031195557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1031195551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2064e9f0fa320c740b88b6069bd81582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniform: 1
+  autoSetUniform: 0
 --- !u!114 &1031195558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,6 +698,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8617f20ebe27b1e4592ff7ec1c33d0be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1480679185
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1480679186}
+  - 131: {fileID: 1480679187}
+  m_Layer: 0
+  m_Name: ResumeButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1480679186
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1480679185}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 297155178}
+--- !u!131 &1480679187
+GUITexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1480679185}
+  m_Enabled: 1
+  m_Texture: {fileID: 0}
+  m_Color: {r: .5, g: .5, b: .5, a: .5}
+  m_PixelInset:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  m_LeftBorder: 0
+  m_RightBorder: 0
+  m_TopBorder: 0
+  m_BottomBorder: 0
 --- !u!1 &1874213568
 GameObject:
   m_ObjectHideFlags: 0
