@@ -24,6 +24,7 @@ namespace Assets.Scripts.Game
 
         private void Start()
         {
+            LoadRecord();
             CalibratePosition();
             SetTextures();
         }
@@ -67,8 +68,9 @@ namespace Assets.Scripts.Game
         {
             if (ToMenu.HitTest(_touch.position))
             {
-                Debug.Log("ToMenu");
                 _isOpen = false;
+                SaveRecord();
+                ClearScores();
                 Time.timeScale = 1;
                 Application.LoadLevel(0);
             }
@@ -78,7 +80,6 @@ namespace Assets.Scripts.Game
         {
             if (Resume.HitTest(_touch.position))
             {
-                Debug.Log("ToMenu");
                 _isOpen = false;
                 Time.timeScale = 1;
             }
@@ -121,6 +122,26 @@ namespace Assets.Scripts.Game
                 ToMenu.enabled = true;
                 Resume.enabled = true;
             }
+        }
+
+        private void SaveRecord()
+        {
+            int score = ScoreAndScale.Scores;
+
+            if (ShowRecords.BestScore < score)
+            {
+                ShowRecords.SaveReecord(score);
+            } 
+        }
+
+        private void LoadRecord()
+        {
+            ShowRecords.LoadRecord();
+        }
+
+        private void ClearScores()
+        {
+            ScoreAndScale.Scores = 0;
         }
     }
 }

@@ -607,6 +607,7 @@ GameObject:
   - 81: {fileID: 1031195552}
   - 114: {fileID: 1031195558}
   - 114: {fileID: 1031195557}
+  - 114: {fileID: 1031195559}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -655,7 +656,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 247.5
+  orthographic size: 257.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -696,6 +697,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8617f20ebe27b1e4592ff7ec1c33d0be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1031195559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1031195551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 423ff11de893f394580b666a5ab82993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1480679185

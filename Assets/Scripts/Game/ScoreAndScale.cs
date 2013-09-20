@@ -4,7 +4,7 @@ namespace Assets.Scripts.Game
 {
     public class ScoreAndScale : MonoBehaviour
     {
-        public static int Scores;
+        public static int Scores = 0;
         public static int Scale = 1;
 
         private void Update()
