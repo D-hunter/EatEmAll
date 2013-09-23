@@ -4,23 +4,42 @@ namespace Assets.Scripts.Game
 {
     public class PlaySoundtrack : MonoBehaviour
     {
+
+        private void Awake()
+        {
+            DontDestroyOnLoad(this);
+        }
+
         private void Update()
         {
-            if (Input.GetKeyUp(KeyCode.D))
+            if (Application.loadedLevel == 0)
             {
-                PlayPause();
+                Play();
+            }
+
+            if (Application.loadedLevel == 1)
+            {
+                Fade();
             }
         }
 
-        private void PlayPause()
+        private void Play()
         {
-            if (audio.isPlaying)
+            if (!audio.isPlaying)
             {
-                audio.Pause();
+                audio.Play();
+            }
+        }
+
+        private void Fade()
+        {
+            if (audio.isPlaying && audio.volume > 0)
+            {
+                audio.volume = audio.volume - 0.005f;
             }
             else
             {
-                audio.Play();
+                audio.Stop();
             }
         }
     }
