@@ -7,35 +7,45 @@ namespace Assets.Scripts.Game
 		
 		public GameObject[] SpawnPoints;
 		Vector3 startPosition;
-		void Start () {
-			startPosition = this.transform.position;
+		
+		void Start () 
+		{
+			startPosition = transform.position;
 		}
 		
-		void Update () {
-			MoveBottom();
+		void Update () 
+		{
+			MoveEater();
 		}
 		
-		void MoveBottom(){
+		void MoveEater()
+		{
 			int count = Input.touchCount;
 			Touch touch;
-			if(count>0){
-				Debug.Log("CHECK!");
-				for(int i=0;i<count;i++){
-					touch = Input.GetTouch(i);
-					if(touch.phase == TouchPhase.Began){
-						Ray ray = Camera.main.ScreenPointToRay(touch.position);
-						RaycastHit hit = new RaycastHit();
-						if(Physics.Raycast(ray,out hit)){
-							if(hit.collider.gameObject.tag == "bottom"){
-								if(Vector3.Distance(this.transform.position,SpawnPoints[0].transform.position)>0.5)
-								transform.position+= transform.up*1000f*Time.deltaTime;	
-							}
-						}
+			if(Input.touchCount>0)
+			{
+				touch = Input.GetTouch(0);
+				if(touch.phase == TouchPhase.Began)
+				{
+					Ray ray = Camera.main.ScreenPointToRay(touch.position);
+					RaycastHit hit = new RaycastHit();
+					if(Physics.Raycast(ray,out hit))
+					{
+						string tag = hit.collider.gameObject.tag;
+						switch(tag)
+						{
+						case "bottom":transform.position= new Vector3(transform.position.x,SpawnPoints[0].transform.position.y,transform.position.z);break;
+						case "top":transform.position= new Vector3(transform.position.x,SpawnPoints[2].transform.position.y,transform.position.z);break;
+						case "center":transform.position= new Vector3(transform.position.x,SpawnPoints[1].transform.position.y,transform.position.z);break;
+						default:transform.position=startPosition;break;
+						}					
 					}
 				}
-			
+				else if(!(touch.phase == TouchPhase.Stationary||touch.phase == TouchPhase.Moved))
+				{
+					transform.position=startPosition;
+				}
 			}
-
 		}
 	}
 }
