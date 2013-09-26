@@ -10,6 +10,11 @@ namespace Assets.Scripts.Game
 		public int OnDestroySatietySub = -1;
 		public byte OnDestroyScoreAdd = 0;
 
+        private void Start()
+        {
+            FlySound();
+        }
+
         private void Update()
         {
             Move();
@@ -18,6 +23,12 @@ namespace Assets.Scripts.Game
         private void Move()
         {
             transform.Translate(Vector3.left * Time.deltaTime * Speed);
+        }
+
+        private void FlySound()
+        {
+            audio.Play();
+            audio.loop = true;
         }
     }
 }
