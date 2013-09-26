@@ -28,9 +28,6 @@ namespace Assets.Scripts.Game
         {
             Random rand = new Random();
             byte result = (byte)rand.Next(count);
-
-            Debug.Log(result);
-
             return result;
         }
 
