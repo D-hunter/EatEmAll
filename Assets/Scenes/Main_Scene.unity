@@ -310,7 +310,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 124120548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -107.670044, y: -40, z: 10}
+  m_LocalPosition: {x: -97.6204376, y: -60, z: 10}
   m_LocalScale: {x: 40, y: 38, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -340,7 +340,7 @@ Transform:
 <<<<<<< HEAD
   m_GameObject: {fileID: 203480381}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 40, z: 10}
+  m_LocalPosition: {x: 0, y: 60, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 106101492}
@@ -470,7 +470,7 @@ Transform:
   m_PrefabInternal: {fileID: 993106254}
   m_GameObject: {fileID: 367929919}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 150, y: 40, z: 10}
+  m_LocalPosition: {x: 150, y: 60, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -782,7 +782,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 987296687}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -107.670044, y: 0, z: 10}
+  m_LocalPosition: {x: -97.6204376, y: 0, z: 10}
   m_LocalScale: {x: 40, y: 38, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -836,7 +836,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 94977ec961cd6a649b573834c883ddd6, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 94977ec961cd6a649b573834c883ddd6, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1124,7 +1124,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1184226610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -107.670044, y: 40, z: 10}
+  m_LocalPosition: {x: -97.6204376, y: 60, z: 10}
   m_LocalScale: {x: 40, y: 38, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1150,7 +1150,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1782208778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -40, z: 10}
+  m_LocalPosition: {x: 0, y: -60, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1114359021}
@@ -1276,7 +1276,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 94977ec961cd6a649b573834c883ddd6, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -40
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 94977ec961cd6a649b573834c883ddd6, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1329,7 +1329,7 @@ Transform:
   m_PrefabInternal: {fileID: 1946943694}
   m_GameObject: {fileID: 2066243355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 150, y: -40, z: 10}
+  m_LocalPosition: {x: 150, y: -60, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1345,6 +1345,7 @@ GameObject:
   - 65: {fileID: 2116504303}
   - 23: {fileID: 2116504302}
   - 114: {fileID: 2116504306}
+  - 114: {fileID: 2116504307}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -1380,8 +1381,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .5, y: .5, z: 8}
+  m_Center: {x: 0, y: 0, z: -10}
 --- !u!33 &2116504304
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1396,7 +1397,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2116504301}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -140, z: 10}
+  m_LocalPosition: {x: 0, y: -140, z: 20}
   m_LocalScale: {x: 60, y: 30, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1415,3 +1416,14 @@ MonoBehaviour:
   - {fileID: 1782208778}
   - {fileID: 765222537}
   - {fileID: 203480381}
+--- !u!114 &2116504307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2116504301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6181745ec4e557418b8bd9b8194c458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
