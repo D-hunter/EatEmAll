@@ -5,22 +5,29 @@ namespace Assets.Scripts.Other
     [ExecuteInEditMode]
     public class CameraConfiguration : MonoBehaviour
     {
-        [SerializeField] private bool uniform = true;
-        [SerializeField] private bool autoSetUniform = false;
+        [SerializeField] private bool isUnitToPixel = true;
+        [SerializeField] private bool isAutoUnitToPixel = false;
 
         private void Awake()
         {
             camera.orthographic = true;
 
-            if (uniform)
+            SetScreenOrientation();
+
+            if (isUnitToPixel)
             {
                 SetUniform();
             }
         }
 
+        private void SetScreenOrientation()
+        {
+            Screen.orientation = ScreenOrientation.Portrait;
+        }
+
         private void LateUpdate()
         {
-            if (autoSetUniform && uniform)
+            if (isAutoUnitToPixel && isUnitToPixel)
             {
                 SetUniform();
             }
@@ -34,5 +41,7 @@ namespace Assets.Scripts.Other
                 camera.orthographicSize = orthographicSize;
             }
         }
+
+       
     }
 }
