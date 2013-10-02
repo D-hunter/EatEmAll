@@ -11,6 +11,12 @@ TagManager:
   - play
   - exit
   - 
+  - Play
+  - Exit
+  - Menu
+  - Resume
+  - ToMainMenu
+  - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
   Builtin Layer 2: Ignore Raycast

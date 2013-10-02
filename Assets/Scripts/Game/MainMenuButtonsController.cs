@@ -92,8 +92,8 @@ namespace Assets.Scripts.Game
         private void CalibratePosition()
         {
             transform.position = Vector3.zero;
-            Play.transform.position = new Vector3(-_screenWidth / 4, 0, ZDepth);
-            Exit.transform.position = new Vector3(_screenWidth / 4, 0, ZDepth);
+            Play.transform.position = new Vector3(0, _screenWidth / 4, ZDepth);
+            Exit.transform.position = new Vector3(0, -_screenWidth / 4, ZDepth);
         }
 
         private void SetSize()
