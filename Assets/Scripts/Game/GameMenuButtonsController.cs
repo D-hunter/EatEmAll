@@ -4,124 +4,152 @@ namespace Assets.Scripts.Game
 {
     public class GameMenuButtonsController : MonoBehaviour
     {
-        public GUITexture Open;
-        public Texture2D OpenActive;
-        public Texture2D OpenPassive;
-        public GUITexture ToMenu;
-        public Texture2D ToMenuActive;
-        public Texture2D ToMenuPassive;
-        public GUITexture Resume;
-        public Texture2D ResumeActive;
-        public Texture2D ResumePassive;
+        public GameObject GameMenu;
+        public Material GameMenuActive;
+        public Material GameMenuPassive;
+        public GameObject Resume;
+        public Material ResumeActive;
+        public Material ResumePassive;
+        public GameObject ToMenu;
+        public Material ToMenuActive;
+        public Material ToMenuPassive;
 
-        private bool _isOpen = false;
+        public const float ZDepth = 100;
+
+        private bool _isGameMenu = false;
         private bool _isToMenu = false;
         private bool _isResume = false;
 
         private float _screenWidth;
-        private float _screenHeight;
-        private Touch _touch;
-
+        
         private void Start()
         {
             LoadRecord();
             CalibratePosition();
-            SetTextures();
+            SetSize();
+//            SetTextures();
         }
 
         private void Update()
         {
-            _screenWidth = Screen.width;
-            _screenHeight = Screen.height;
+            GetScreenParameters();
             ShowButtons();
             CalibratePosition();
             HandleTap();
         }
 
+        private void GetScreenParameters()
+        {
+            _screenWidth = Screen.width;
+        }
+
         private void HandleTap()
         {
-            var count = Input.touchCount;
-            for (int i = 0; i < count; i++)
+            Touch touch;
+            if (Input.touchCount > 0)
             {
-                _touch = Input.GetTouch(i);
-                if (_touch.tapCount != 0)
+                touch = Input.GetTouch(0);
+                if (touch.phase == TouchPhase.Began)
                 {
-                    OpenButton();
-                    ToMenuButton();
-                    ResumeButton();
+                    Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                    RaycastHit hit = new RaycastHit();
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                        string hitTag = hit.collider.gameObject.tag;
+                        switch (hitTag)
+                        {
+                            case "Menu":
+                                {
+                                    PushGameMenuButton();
+                                    break;
+                                }
+                            case "Resume":
+                                {
+                                    PushResumeButton();
+                                    break;
+                                }
+                            case "ToMainMenu":
+                                {
+                                    PushToMenuButton();
+                                    break;
+                                }
+                        }
+                    }
                 }
             }
         }
 
-        private void OpenButton()
+        private void PushGameMenuButton()
         {
-            if (Open.HitTest(_touch.position) && !_isOpen)
-            {
-                _isOpen = true;
-                ToMenuButton();
-                ResumeButton();
-                Time.timeScale = 0;
-            }
+            _isGameMenu = true;
+//            PushToMenuButton();
+//            PushResumeButton();
+            MakePause();
         }
 
-        private void ToMenuButton()
+        private void PushToMenuButton()
         {
-            if (ToMenu.HitTest(_touch.position))
-            {
-                _isOpen = false;
-                SaveRecord();
-                ClearScores();
-                Time.timeScale = 1;
-                Application.LoadLevel(0);
-            }
+            _isGameMenu = false;
+            SaveRecord();
+            ClearScores();
+            MakeUnpause();
+            Application.LoadLevel(0);
         }
 
-        private void ResumeButton()
+        private void PushResumeButton()
         {
-            if (Resume.HitTest(_touch.position))
-            {
-                _isOpen = false;
-                Time.timeScale = 1;
-            }
+            _isGameMenu = false;
+            MakePause();
         }
 
         private void SetTextures()
         {
-            Open.guiTexture.texture = !_isOpen ? OpenPassive : OpenActive;
-            ToMenu.guiTexture.texture = !_isToMenu ? ToMenuPassive : ToMenuActive;
-            Resume.guiTexture.texture = !_isResume ? ResumePassive : ResumeActive;
+            GameMenu.renderer.material = !_isGameMenu ? GameMenuPassive : GameMenuActive;
+            ToMenu.renderer.material = !_isToMenu ? ToMenuPassive : ToMenuActive;
+            Resume.renderer.material = !_isResume ? ResumePassive : ResumeActive;
         }
 
         private void CalibratePosition()
         {
             transform.position = Vector3.zero;
             transform.localScale = Vector3.zero;
-            Open.transform.localScale = Vector3.zero;
-            ToMenu.transform.localScale = Vector3.zero;
-            Open.transform.position = Vector3.zero;
-            ToMenu.transform.position = Vector3.zero;
-            Resume.transform.position = Vector3.zero;
-            Resume.transform.position = Vector3.zero;
 
-            Open.pixelInset = new Rect(_screenWidth * 0.08f, _screenHeight * 0.8f, 64, 64);
-            ToMenu.pixelInset = new Rect(_screenWidth * 0.08f, _screenHeight/1.7f, 64, 64);
-            Resume.pixelInset = new Rect(ToMenu.pixelInset.x, ToMenu.pixelInset.y - _screenHeight/4, 64, 64);
+            GameMenu.transform.position = new Vector3(-_screenWidth / 8, _screenWidth / 8, ZDepth);
+            ToMenu.transform.position = new Vector3(0, _screenWidth / 4, ZDepth);
+            Resume.transform.position = new Vector3(0, -_screenWidth / 4, ZDepth);
+        }
+
+        private void SetSize()
+        {
+            GameMenu.transform.localScale = new Vector3(_screenWidth / 12, _screenWidth / 12, 1);
+            ToMenu.transform.localScale = new Vector3(_screenWidth / 12, _screenWidth / 12, 1);
+            Resume.transform.localScale = new Vector3(_screenWidth / 12, _screenWidth / 12, 1);
         }
 
         private void ShowButtons()
         {
-            if (!_isOpen)
+            if (!_isGameMenu)
             {
-                Open.enabled = true;
-                ToMenu.enabled = false;
-                Resume.enabled = false;
+                GameMenu.renderer.enabled = true;
+                ToMenu.renderer.enabled = false;
+                Resume.renderer.enabled = false;
             }
             else
             {
-                Open.enabled = false;
-                ToMenu.enabled = true;
-                Resume.enabled = true;
+                GameMenu.renderer.enabled = false;
+                ToMenu.renderer.enabled = true;
+                Resume.renderer.enabled = true;
             }
+        }
+
+        private void MakePause()
+        {
+            Time.timeScale = 0;
+        }
+
+        private void MakeUnpause()
+        {
+            Time.timeScale = 1;
         }
 
         private void SaveRecord()

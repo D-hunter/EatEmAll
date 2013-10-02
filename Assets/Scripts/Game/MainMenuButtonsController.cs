@@ -11,29 +11,31 @@ namespace Assets.Scripts.Game
         public Material ExitActive;
         public Material ExitPassive;
 
+        public const float ZDepth = 100;
+
         private bool isPlay = false;
         private bool isExit = false;
 
         private float _screenWidth;
-        private float _screenHeight;
-
+        
         void Start()
         {
             GetScreenParameters();
-//            CalibratePosition();
-//            SetTextures();
+            CalibratePosition();
+            SetTextures();
+            SetSize();
         }
 
         void Update()
         {
-//            CalibratePosition();
+            CalibratePosition();
+            SetSize();
             HandleTap();
         }
 
         private void GetScreenParameters()
         {
             _screenWidth = Screen.width;
-            _screenHeight = Screen.height;
         }
 
         private void HandleTap()
@@ -51,8 +53,16 @@ namespace Assets.Scripts.Game
                         string hitTag = hit.collider.gameObject.tag;
                         switch (hitTag)
                         {
-                            case "Play": PushPlayButton(); break;
-                            case "Exit": PushExitButton(); break;
+                            case "Play":
+                            {
+                                PushPlayButton();
+                                break;
+                            }
+                            case "Exit":
+                            {
+                                PushExitButton(); 
+                                break;
+                            }
                         }
                     }
                 }
@@ -61,11 +71,15 @@ namespace Assets.Scripts.Game
 
         private void PushPlayButton()
         {
+            isPlay = true;
+            SetTextures();
             Application.LoadLevel(1);
         }
 
         private void PushExitButton()
         {
+            isExit = true;
+            SetTextures();
             Application.Quit();
         }
 
@@ -78,14 +92,14 @@ namespace Assets.Scripts.Game
         private void CalibratePosition()
         {
             transform.position = Vector3.zero;
-            transform.localScale = Vector3.zero;
-            Play.transform.localScale = Vector3.zero;
-            Exit.transform.localScale = Vector3.zero;
-            Play.transform.position = Vector3.zero;
-            Exit.transform.position = Vector3.zero;
+            Play.transform.position = new Vector3(-_screenWidth / 4, 0, ZDepth);
+            Exit.transform.position = new Vector3(_screenWidth / 4, 0, ZDepth);
+        }
 
-//            Play.pixelInset = new Rect(_screenWidth/2, _screenHeight/1.7f, 64, 64);
-//            Exit.pixelInset = new Rect(Play.pixelInset.x, Play.pixelInset.y - _screenHeight/4, 64, 64);
+        private void SetSize()
+        {
+            Play.transform.localScale = new Vector3(_screenWidth / 4, _screenWidth / 4, 1);
+            Exit.transform.localScale = new Vector3(_screenWidth / 4, _screenWidth / 4, 1);
         }
     }
 }
