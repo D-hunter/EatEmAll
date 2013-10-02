@@ -83,13 +83,12 @@ namespace Assets.Scripts.Game
         private void PushGameMenuButton()
         {
             _isGameMenu = true;
-//            PushToMenuButton();
-//            PushResumeButton();
             MakePause();
         }
 
         private void PushToMenuButton()
         {
+            _isToMenu = true;
             _isGameMenu = false;
             SaveRecord();
             ClearScores();
@@ -99,8 +98,9 @@ namespace Assets.Scripts.Game
 
         private void PushResumeButton()
         {
+            _isResume = true;
             _isGameMenu = false;
-            MakePause();
+            MakeUnpause();
         }
 
         private void SetTextures()
@@ -112,11 +112,11 @@ namespace Assets.Scripts.Game
 
         private void CalibratePosition()
         {
-            transform.position = Vector3.zero;
+            transform.position = new Vector3(0, 0, 100);
 
-            GameMenu.transform.position = new Vector3(-_screenWidth / 4, _screenWidth / 1.5f, ZDepth);
-            ToMenu.transform.position = new Vector3(0, _screenWidth / 8, ZDepth);
-            Resume.transform.position = new Vector3(0, -_screenWidth / 8, ZDepth);
+            GameMenu.transform.position = new Vector3(-_screenWidth / 3, _screenWidth / 1.65f, ZDepth);
+            ToMenu.transform.position = new Vector3(0, _screenWidth / 6, ZDepth);
+            Resume.transform.position = new Vector3(0, -_screenWidth / 6, ZDepth);
         }
 
         private void SetSize()
@@ -173,5 +173,3 @@ namespace Assets.Scripts.Game
         }
     }
 }
-
-
