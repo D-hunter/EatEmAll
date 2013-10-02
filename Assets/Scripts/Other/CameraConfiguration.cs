@@ -41,7 +41,5 @@ namespace Assets.Scripts.Other
                 camera.orthographicSize = orthographicSize;
             }
         }
-
-       
     }
 }
