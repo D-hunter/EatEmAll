@@ -29,7 +29,6 @@ namespace Assets.Scripts.Game
             if (Satiety >= 1)
             {
                 GUI.Box(new Rect(10, Screen.height / 2 - 100, 100, 25), "Scale = " + Satiety);
-                
             }
             else
             {

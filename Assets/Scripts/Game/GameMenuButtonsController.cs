@@ -133,12 +133,20 @@ namespace Assets.Scripts.Game
                 GameMenu.renderer.enabled = true;
                 ToMenu.renderer.enabled = false;
                 Resume.renderer.enabled = false;
+
+                GameMenu.collider.enabled = true;
+                ToMenu.collider.enabled = false;
+                Resume.collider.enabled = false;
             }
             else
             {
                 GameMenu.renderer.enabled = false;
                 ToMenu.renderer.enabled = true;
                 Resume.renderer.enabled = true;
+
+                GameMenu.collider.enabled = false;
+                ToMenu.collider.enabled = true;
+                Resume.collider.enabled = true;
             }
         }
 
