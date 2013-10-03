@@ -6,6 +6,9 @@ namespace Assets.Scripts.Game
     {
         public static int Scores = 0;
         public static int Satiety = 10;
+        public GameObject SatietyBackground;
+        public GameObject SatietyScale;
+
 		
         private void OnGUI()
         {
