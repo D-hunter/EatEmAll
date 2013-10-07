@@ -14,9 +14,9 @@ GameObject:
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400000}
   - 82: {fileID: 8200000}
-  m_Layer: 0
-  m_Name: InsectFirst
-  m_TagString: bad
+  m_Layer: 8
+  m_Name: GreenInsect
+  m_TagString: good
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +44,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 428f4de655285be448c89ccf3a285011, type: 2}
+  - {fileID: 2100000, guid: 6938840c41532f945b641528ca88cb56, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -142,9 +142,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 100
-  OnEatScoreAdd: 4
-  OnEatSatietyAdd: -2
-  OnDestroySatietySub: 0
+  OnEatScoreAdd: 1
+  OnEatSatietyAdd: 2
+  OnDestroySatietySub: -3
   OnDestroyScoreAdd: 0
 --- !u!136 &13600000
 CapsuleCollider:
