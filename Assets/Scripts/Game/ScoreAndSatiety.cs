@@ -1,19 +1,29 @@
-﻿using UnityEngine;
+﻿using System.Runtime.Serialization.Formatters;
+using UnityEngine;
 
 namespace Assets.Scripts.Game
 {
     public class ScoreAndSatiety : MonoBehaviour
     {
         public static int Scores = 0;
-        public static int Satiety = 10;
+        public static int Satiety = 50;
         public GameObject SatietyBackground;
         public GameObject SatietyScale;
 
-		
+        void Awake()
+        {
+            SatietyScale = gameObject;
+        }
+
+        void Update()
+        {
+            ChangeScaleSize();
+        }
+
         private void OnGUI()
         {
             ShowScoreOnBox();
-            ShowNumSatietyOnBox();
+//            ShowNumSatietyOnBox();
         }
 
         void ShowScoreOnBox()
@@ -24,16 +34,28 @@ namespace Assets.Scripts.Game
             }
         }
 
-        void ShowNumSatietyOnBox()
+//        void ShowNumSatietyOnBox()
+//        {
+//            if (Satiety >= 1)
+//            {
+//                GUI.Box(new Rect(Screen.width - 50, Screen.height / 2 - 100, ChangeScaleSize(), 25), "Scale = " + Satiety);
+//            }
+//            else
+//            {
+//                GUI.Box(new Rect(10, Screen.height / 2 - 100, 100, 25), "YOU DEAD!");
+//            }
+//        }
+
+        private void ChangeScaleSize()
         {
-            if (Satiety >= 1)
-            {
-                GUI.Box(new Rect(10, Screen.height / 2 - 100, 100, 25), "Scale = " + Satiety);
-            }
-            else
-            {
-                GUI.Box(new Rect(10, Screen.height / 2 - 100, 100, 25), "YOU DEAD!");
-            }
+            Vector3 oldScaleSize = SatietyScale.transform.localScale;
+            float difference = oldScaleSize.y - SatietyScale.transform.localScale.y;
+
+            SatietyScale.transform.localScale = new Vector3(SatietyScale.transform.localScale.x, Satiety, SatietyScale.transform.localScale.z);
+            SatietyScale.transform.position += new Vector3(0, difference, 0);
+
+            oldScaleSize = SatietyScale.transform.localScale;
         }
+
     }
 }
