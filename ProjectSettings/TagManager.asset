@@ -8,20 +8,9 @@ TagManager:
   - top
   - center
   - bottom
-<<<<<<< HEAD
-  - play
-  - exit
-  - 
-  - Play
-  - Exit
-  - Menu
-  - Resume
-  - ToMainMenu
-=======
   - ExtraGreen
   - ExtraYellow
   - Bonus
->>>>>>> some_randomize
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

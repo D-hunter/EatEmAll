@@ -17,7 +17,7 @@ namespace Assets.Scripts.Game
 		}
 		
         private void Update()
-		{
+		{			
 		if(CurrentTime+SpawnDelay<=Time.time)
 			{
 				Generator.SpawnTheInsect(Insects,SpawnPoints);
@@ -28,9 +28,9 @@ namespace Assets.Scripts.Game
 
     public static class Generator
     {
-		private static float StandartInsectRate = 0.85f;
+		private static float StandartInsectRate = 0.89f;
 		private static float ExtraInsectRate = 0.1f;
-		private static float BonusInsectRate = 0.05f;
+		private static float BonusInsectRate = 0.01f;
 		
 		private static float S_GreenInsectRate = 0.46f;
 		private static float S_RedInsectRate = 0.54f;
@@ -59,10 +59,8 @@ namespace Assets.Scripts.Game
 		{
 			if (Random_Value<=StandartInsectRate){return StandartInsectRate;}
 			if (Random_Value>StandartInsectRate && Random_Value<=StandartInsectRate+ExtraInsectRate){return ExtraInsectRate;}
-			if (Random_Value>StandartInsectRate+ExtraInsectRate && Random_Value<=1f){return BonusInsectRate;}else{
-				return StandartInsectRate;
-			}
-			
+			if (Random_Value>StandartInsectRate+ExtraInsectRate && Random_Value<=1f){return BonusInsectRate;}
+			else{return StandartInsectRate;}	
 		}
 		
         public static void SpawnTheInsect(GameObject[] insects, GameObject[] spawnPoints)
@@ -71,13 +69,16 @@ namespace Assets.Scripts.Game
 			
 			float CHOOSEN_INSECT = ChooseClassInsect(Random.value);
 			
-			if(CHOOSEN_INSECT == StandartInsectRate){
+			if(CHOOSEN_INSECT == StandartInsectRate)
+			{
 				currentInsect = KindOfInsect(S_RedInsectRate,S_GreenInsectRate,insects[0],insects[1]);	
 			}
-			if(CHOOSEN_INSECT == ExtraInsectRate){
+			if(CHOOSEN_INSECT == ExtraInsectRate)
+			{
 				currentInsect = KindOfInsect(E_GreenInsectRate,E_YellowInsectRate,insects[2],insects[3]);
 			}
-			if(CHOOSEN_INSECT == BonusInsectRate){
+			if(CHOOSEN_INSECT == BonusInsectRate)
+			{
 				currentInsect = insects[4];	
 			}
 			
