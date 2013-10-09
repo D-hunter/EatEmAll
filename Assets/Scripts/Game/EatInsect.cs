@@ -15,13 +15,17 @@ namespace Assets.Scripts.Game
 
         private void ChangeSatiety(int satiety)
         {
-            if (ScoreAndSatiety.Satiety < 100)
+            if (ScoreAndSatiety.Satiety > 100)
             {
-                ScoreAndSatiety.Satiety += satiety;
+                ScoreAndSatiety.Satiety = 100;
+            }
+            else if (ScoreAndSatiety.Satiety < 0)
+            {
+                ScoreAndSatiety.Satiety = 0;
             }
             else
             {
-                ScoreAndSatiety.Satiety = 100;
+                ScoreAndSatiety.Satiety += satiety;
             }
         }
     }

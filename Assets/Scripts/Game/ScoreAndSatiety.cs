@@ -1,5 +1,4 @@
-﻿using System.Runtime.Serialization.Formatters;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.Game
 {
@@ -10,52 +9,85 @@ namespace Assets.Scripts.Game
         public GameObject SatietyBackground;
         public GameObject SatietyScale;
 
-        void Awake()
+        private int oldSatiety = Satiety;
+        private Vector3 _oldSatietyScale;
+
+        private void Awake()
         {
-            SatietyScale = gameObject;
+            InitializeScale();
+            ChangeScaleColor();
         }
 
-        void Update()
+        private void Update()
         {
-            ChangeScaleSize();
+            CheckSatietyState();
+            WhenToChangeScale();
         }
 
         private void OnGUI()
         {
             ShowScoreOnBox();
-//            ShowNumSatietyOnBox();
         }
 
-        void ShowScoreOnBox()
+        private void InitializeScale()
         {
-            if (Scores >= 0)
+            SatietyScale = gameObject;
+            SatietyScale.transform.localScale = new Vector3(SatietyScale.transform.localScale.x, Satiety * 2, SatietyScale.transform.localScale.z);
+            _oldSatietyScale = SatietyScale.transform.localScale;
+        }
+
+        private void ShowScoreOnBox()
+        {
+            GUI.Box(new Rect(Screen.width/2 - 100, 10, Screen.width / 4f, Screen.width / 32f), "Scores  = " + Scores);
+        }
+
+        private void WhenToChangeScale()
+        {
+            if (Satiety != oldSatiety)
             {
-                GUI.Box(new Rect(Screen.width / 2 - 100, 10, 200, 25), "Scores  = " + Scores);
+                ChangeScaleSize(OffsetDirection());
             }
         }
 
-//        void ShowNumSatietyOnBox()
-//        {
-//            if (Satiety >= 1)
-//            {
-//                GUI.Box(new Rect(Screen.width - 50, Screen.height / 2 - 100, ChangeScaleSize(), 25), "Scale = " + Satiety);
-//            }
-//            else
-//            {
-//                GUI.Box(new Rect(10, Screen.height / 2 - 100, 100, 25), "YOU DEAD!");
-//            }
-//        }
-
-        private void ChangeScaleSize()
+        private int OffsetDirection()
         {
-            Vector3 oldScaleSize = SatietyScale.transform.localScale;
-            float difference = oldScaleSize.y - SatietyScale.transform.localScale.y;
-
-            SatietyScale.transform.localScale = new Vector3(SatietyScale.transform.localScale.x, Satiety, SatietyScale.transform.localScale.z);
-            SatietyScale.transform.position += new Vector3(0, difference, 0);
-
-            oldScaleSize = SatietyScale.transform.localScale;
+            if (Satiety >= oldSatiety)
+            {
+                return 1;
+            }
+            else
+            {
+                return -1;    
+            }
         }
 
+        private void ChangeScaleSize(int offsetDirection)
+        {
+            SatietyScale.transform.localScale = new Vector3(SatietyScale.transform.localScale.x, Satiety * 2, SatietyScale.transform.localScale.z);
+
+            float possitionOffset = (_oldSatietyScale.y - SatietyScale.transform.localScale.y) / 2;
+
+            SatietyScale.transform.position += new Vector3(0, possitionOffset * offsetDirection, 0);
+
+            ChangeScaleColor();
+            _oldSatietyScale = SatietyScale.transform.localScale;
+        }
+
+        private void ChangeScaleColor()
+        {
+            SatietyScale.renderer.material.color = Color.Lerp(Color.red, Color.green, Satiety / 100.0f);
+        }
+
+        private void CheckSatietyState()
+        {
+            if (Satiety > 100)
+            {
+                Satiety = 100;
+            }
+            else if (Satiety < 0)
+            {
+                Satiety = 0;
+            }
+        }
     }
 }

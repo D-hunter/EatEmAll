@@ -162,7 +162,7 @@ namespace Assets.Scripts.Game
 
         private void SaveRecord()
         {
-            int score = ScoreAndScale.Scores;
+            int score = ScoreAndSatiety.Scores;
 
             if (ShowRecords.BestScore < score)
             {
@@ -177,7 +177,7 @@ namespace Assets.Scripts.Game
 
         private void ClearScores()
         {
-            ScoreAndScale.Scores = 0;
+            ScoreAndSatiety.Scores = 0;
         }
     }
 }
