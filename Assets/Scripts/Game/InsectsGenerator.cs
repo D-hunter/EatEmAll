@@ -38,6 +38,9 @@ namespace Assets.Scripts.Game
 		private static float E_GreenInsectRate = 0.5f;
 		private static float E_YellowInsectRate = 0.5f;
 		
+		public static float SpeedBonus = 1f;
+		public static byte ScoreBonus = 1;
+			
         private static int ChooseSpawnNumber()
         {
 			double checkLine = Random.value;
@@ -83,7 +86,10 @@ namespace Assets.Scripts.Game
 			}
 			
             GameObject currentSpawnPoint = spawnPoints[ChooseSpawnNumber()];
-
+			
+			currentInsect.GetComponent<InsectInfo>().Speed*= SpeedBonus;
+			currentInsect.GetComponent<InsectInfo>().OnEatScoreAdd *= ScoreBonus;
+			
             Object.Instantiate(currentInsect,currentSpawnPoint.transform.position, currentSpawnPoint.transform.rotation);
         }
 		

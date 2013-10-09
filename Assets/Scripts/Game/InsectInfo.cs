@@ -9,6 +9,7 @@ namespace Assets.Scripts.Game
 		public int OnEatSatietyAdd = 1;
 		public int OnDestroySatietySub = -1;
 		public byte OnDestroyScoreAdd = 0;
+		public bool IsBonusInsect = false;
 
         private void Start()
         {
