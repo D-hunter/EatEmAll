@@ -203,7 +203,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 241
+  orthographic size: 150.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -803,6 +803,7 @@ GameObject:
   - 23: {fileID: 1555132303}
   - 114: {fileID: 1555132302}
   - 114: {fileID: 1555132307}
+  - 114: {fileID: 1555132308}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -882,6 +883,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6181745ec4e557418b8bd9b8194c458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1555132308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1555132301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70379bb5a99e514094265b27ced1e9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1568826132
