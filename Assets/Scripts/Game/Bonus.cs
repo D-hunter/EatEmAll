@@ -77,6 +77,7 @@ namespace Assets.Scripts.Game
 			if(MultiplyScoresActiv) return;
 			MultiplyScoresActiv = true;
 			StartTimeMultipliyScores = Time.time;
+			Generator.ScoreBonus = 2;
 			
 		}
 	}
