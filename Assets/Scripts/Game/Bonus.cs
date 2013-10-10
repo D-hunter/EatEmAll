@@ -26,6 +26,12 @@ namespace Assets.Scripts.Game
 		{
 			CheckBonusActuality();
 		}
+
+		void StopSwarm ()
+		{
+			SwarmActiv = false;
+			StartTimeSwarm = 0f;
+		}
 		
 		void CheckBonusActuality()
 		{
@@ -33,17 +39,14 @@ namespace Assets.Scripts.Game
 			{
 				if(StartTimeSlowSpeed+DurationSlowSpeed<Time.time)
 				{
-					SlowSpeedActiv = false;
-					StartTimeSlowSpeed = 0f;
-					Generator.SpeedBonus = 1f;
+ 					StopSlowSpeed();
 				}
 			}
 			if(SwarmActiv)
 			{
 				if(StartTimeSwarm+DurationSwarm<Time.time)
 				{
-					SwarmActiv = false;
-					StartTimeSwarm = 0f;
+					StopSwarm ();
 				}
 			}
 			if(MultiplyScoresActiv)
@@ -59,9 +62,11 @@ namespace Assets.Scripts.Game
 		public static void StartSlowSpeed()
 		{
 			if(SlowSpeedActiv) return;
+			
 			SlowSpeedActiv = true;
 			StartTimeSlowSpeed = Time.time;
-			Generator.SpeedBonus=0.7f;
+			float slowSpeed = 0.7f;
+			Generator.SpeedBonus=slowSpeed;
 		}
 		
 		public static void StartSwarm()
@@ -69,16 +74,27 @@ namespace Assets.Scripts.Game
 			if(SwarmActiv) return;
 			SwarmActiv = true;
 			StartTimeSwarm = Time.time;
-			
 		}
 		
 		public static void StartMultiplyScores()
 		{
 			if(MultiplyScoresActiv) return;
+			
 			MultiplyScoresActiv = true;
 			StartTimeMultipliyScores = Time.time;
-			Generator.ScoreBonus = 2;
-			
+			int scoreMultiplyer = 2;
+			Generator.ScoreBonus = scoreMultiplyer;
 		}
+		
+		private void StopSlowSpeed()
+		{
+			SlowSpeedActiv = false;
+			StartTimeSlowSpeed = 0f;
+			float standartSpeed = 1f;
+			Generator.SpeedBonus = standartSpeed;				
+		}
+		
+		
+		
 	}
 }
