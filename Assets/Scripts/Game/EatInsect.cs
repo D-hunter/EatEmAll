@@ -1,36 +1,52 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-namespace Assets.Scripts.Game{
-	public class EatInsect : MonoBehaviour {
-		void OnTriggerEnter(Collider insect)
-		{
-			var score = insect.gameObject.GetComponent<InsectInfo>().OnEatScoreAdd;
-			var satiety = insect.gameObject.GetComponent<InsectInfo>().OnEatSatietyAdd;
-			ScoreAndSatiety.Scores+=score;
-			ScoreAndSatiety.Satiety+=satiety;
-			if(insect.gameObject.GetComponent<InsectInfo>().IsBonusInsect)
-			{
-				ChooseAndPerformBonus();
-			}
-			Destroy(insect.gameObject);
-		}	
-		
-		void ChooseAndPerformBonus()
-		{
-			float controlParameter = Random.value;
-			if(controlParameter<=0.33f)
-			{
-				Bonus.StartSlowSpeed();	
-			}
-			if(controlParameter>0.33f&&controlParameter<=0.66f)
-			{
-				Bonus.StartMultiplyScores();	
-			}
-			if(controlParameter>0.66f&&controlParameter<=1f)
-			{
-				
-			}
-		}
-	}
+namespace Assets.Scripts.Game
+{
+    public class EatInsect : MonoBehaviour
+    {
+        private void OnTriggerEnter(Collider insect)
+        {
+            var score = insect.gameObject.GetComponent<InsectInfo>().OnEatScoreAdd;
+            var satiety = insect.gameObject.GetComponent<InsectInfo>().OnEatSatietyAdd;
+            ScoreAndSatiety.Scores += score;
+            ScoreAndSatiety.Satiety += satiety;
+            if (insect.gameObject.GetComponent<InsectInfo>().IsBonusInsect)
+            {
+                ChooseAndPerformBonus();
+            }
+            Destroy(insect.gameObject);
+        }
+
+        private void ChooseAndPerformBonus()
+        {
+            float controlParameter = Random.value;
+            if (controlParameter <= 0.33f)
+            {
+                Bonus.StartSlowSpeed();
+            }
+            if (controlParameter > 0.33f && controlParameter <= 0.66f)
+            {
+                Bonus.StartMultiplyScores();
+            }
+            if (controlParameter > 0.66f && controlParameter <= 1f)
+            {
+            }
+        }
+
+        private void ChangeSatiety(int satiety)
+        {
+            if (ScoreAndSatiety.Satiety > 100)
+            {
+                ScoreAndSatiety.Satiety = 100;
+            }
+            else if (ScoreAndSatiety.Satiety < 0)
+            {
+                ScoreAndSatiety.Satiety = 0;
+            }
+            else
+            {
+                ScoreAndSatiety.Satiety += satiety;
+            }
+        }
+    }
 }

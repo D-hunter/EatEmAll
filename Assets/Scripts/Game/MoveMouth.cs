@@ -20,7 +20,6 @@ namespace Assets.Scripts.Game
 		
 		void MoveEater()
 		{
-			int count = Input.touchCount;
 			Touch touch;
 			if(Input.touchCount>0)
 			{
