@@ -38,7 +38,8 @@ namespace Assets.Scripts.Game
 
         private void ShowScoreOnBox()
         {
-            GUI.Box(new Rect(Screen.width/2 - 100, 10, Screen.width / 4f, Screen.width / 32f), "Scores  = " + Scores);
+            GUI.Box(new Rect(Screen.width / 3f, 10, Screen.width / 2f, Screen.width / 10f), "Scores  = " + Scores);
+            new Rect();
         }
 
         private void WhenToChangeScale()
