@@ -20,15 +20,19 @@ namespace Assets.Scripts.Game
         private void ChooseAndPerformBonus()
         {
             float controlParameter = Random.value;
-            if (controlParameter <= 0.33f)
+            if (controlParameter <= 0.25f)
             {
                 Bonus.StartSlowSpeed();
             }
-            if (controlParameter > 0.33f && controlParameter <= 0.66f)
+            if (controlParameter > 0.25f && controlParameter <= 0.50f)
             {
                 Bonus.StartMultiplyScores();
             }
-            if (controlParameter > 0.66f && controlParameter <= 1f)
+            if (controlParameter > 0.50f && controlParameter <= 0.75f)
+            {
+				Bonus.StartFastSpeed();
+            }
+			if (controlParameter > 0.75f && controlParameter <= 1f)
             {
             }
         }
