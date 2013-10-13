@@ -13,8 +13,10 @@ namespace Assets.Scripts.Game
         public GameObject ToMenu;
         public Material ToMenuActive;
         public Material ToMenuPassive;
+        public GameObject Background;
+        public Material BackgroundMaterial;
 
-        public const float ZDepth = 100;
+        public const float ZDepth = -15;
 
         private bool _isGameMenu = false;
         private bool _isToMenu = false;
@@ -108,15 +110,17 @@ namespace Assets.Scripts.Game
             GameMenu.renderer.material = !_isGameMenu ? GameMenuPassive : GameMenuActive;
             ToMenu.renderer.material = !_isToMenu ? ToMenuPassive : ToMenuActive;
             Resume.renderer.material = !_isResume ? ResumePassive : ResumeActive;
+            Background.renderer.material = BackgroundMaterial;
         }
 
         private void CalibratePosition()
         {
-            transform.position = new Vector3(0, 0, 100);
+            transform.position = new Vector3(0, 0, 0);
 
             GameMenu.transform.position = new Vector3(-_screenWidth / 3, _screenWidth / 1.65f, ZDepth);
             ToMenu.transform.position = new Vector3(0, _screenWidth / 6, ZDepth);
             Resume.transform.position = new Vector3(0, -_screenWidth / 6, ZDepth);
+            Background.transform.position = new Vector3(0, 0, 0);
         }
 
         private void SetSize()
@@ -124,6 +128,7 @@ namespace Assets.Scripts.Game
             GameMenu.transform.localScale = new Vector3(_screenWidth / 4, _screenWidth / 4, 1);
             ToMenu.transform.localScale = new Vector3(_screenWidth / 4, _screenWidth / 4, 1);
             Resume.transform.localScale = new Vector3(_screenWidth / 4, _screenWidth / 4, 1);
+            Background.transform.localScale = new Vector3(_screenWidth, _screenWidth * 2f, 1);
         }
 
         private void ShowButtons()
@@ -133,20 +138,24 @@ namespace Assets.Scripts.Game
                 GameMenu.renderer.enabled = true;
                 ToMenu.renderer.enabled = false;
                 Resume.renderer.enabled = false;
+                Background.renderer.enabled = false;
 
                 GameMenu.collider.enabled = true;
                 ToMenu.collider.enabled = false;
                 Resume.collider.enabled = false;
+                Background.collider.enabled = false;
             }
             else
             {
                 GameMenu.renderer.enabled = false;
                 ToMenu.renderer.enabled = true;
                 Resume.renderer.enabled = true;
+                Background.renderer.enabled = true;
 
                 GameMenu.collider.enabled = false;
                 ToMenu.collider.enabled = true;
                 Resume.collider.enabled = true;
+                Background.collider.enabled = true;
             }
         }
 
