@@ -37,6 +37,7 @@ namespace Assets.Scripts.Game
 				if(StartTimeSlowSpeed+DurationSlowSpeed<Time.time)
 				{
  					StopSlowSpeed();
+					Debug.Log("starting slowspeed");
 				}
 			}
 			if(SwarmActiv)
@@ -44,6 +45,7 @@ namespace Assets.Scripts.Game
 				if(StartTimeSwarm+DurationSwarm<Time.time)
 				{
 					StopSwarm();
+					Debug.Log("strarting swarmmmm");
 				}
 			}
 			if(MultiplyScoresActiv)
@@ -51,6 +53,7 @@ namespace Assets.Scripts.Game
 				if(StartTimeMultipliyScores+DurationMultiplyScores<Time.time)
 				{
 					StopMultiplyScores();
+					Debug.Log("strating multiScore");
 				}
 			}
 			if(FastSpeedActiv)
@@ -58,6 +61,7 @@ namespace Assets.Scripts.Game
 				if(StartTimeFastSpeed+DurationFastSpeed<Time.time)
 				{
 					StopFastSpeed();
+					Debug.Log("strating fastSpeed");
 				}
 			}
 		}
@@ -66,10 +70,12 @@ namespace Assets.Scripts.Game
 		{
 			if(SlowSpeedActiv) return;
 			
+			if(FastSpeedActiv) StopFastSpeed();
+			
 			SlowSpeedActiv = true;
 			StartTimeSlowSpeed = Time.time;
 			float slowSpeed = 0.7f;
-			Generator.SpeedBonus=slowSpeed;
+			InsectInfo.SpeedBonus = slowSpeed;
 		}
 		
 		public static void StartSwarm()
@@ -79,6 +85,8 @@ namespace Assets.Scripts.Game
 			StartTimeSwarm = Time.time;
 			
 			Generator.StandartInsectRate = 1f;
+			Generator.S_GreenInsectRate = 1f;
+			Generator.S_RedInsectRate = 0f;
 			Generator.ExtraInsectRate = -1f;
 			Generator.BonusInsectRate = -1f;
 			InsectsGenerator.SpawnDelay = 0.1f;
@@ -91,48 +99,52 @@ namespace Assets.Scripts.Game
 			MultiplyScoresActiv = true;
 			StartTimeMultipliyScores = Time.time;
 			byte scoreMultiplier = 2;
-			Generator.ScoreBonus = scoreMultiplier;
+			InsectInfo.ScoreMultiplier = scoreMultiplier;
 		}
 		
 		public static void StartFastSpeed()
 		{
 			if(FastSpeedActiv) return;
 			
+			if(SlowSpeedActiv) StopSlowSpeed();
+			
 			FastSpeedActiv = true;
 			StartTimeFastSpeed = Time.time;
 			float fastSpeed = 1.7f;
-			Generator.SpeedBonus = fastSpeed;
+			InsectInfo.SpeedBonus = fastSpeed;
 		}
 		
-		private void StopSlowSpeed()
+		private static void StopSlowSpeed()
 		{
 			SlowSpeedActiv = false;
 			StartTimeSlowSpeed = 0f;
-			float standartSpeed = 1f;
-			Generator.SpeedBonus = standartSpeed;				
+			float standartSpeed = 1f;			
+			InsectInfo.SpeedBonus = standartSpeed;
 		}
 		
-		private void StopSwarm ()
+		private static void StopSwarm ()
 		{
 			SwarmActiv = false;
 			StartTimeSwarm = 0f;
 			
-			Generator.StandartInsectRate = 0.85f;
+			Generator.StandartInsectRate = 0.89f;
+			Generator.S_GreenInsectRate = 0.46f;
+			Generator.S_RedInsectRate = 0.54f;
 			Generator.ExtraInsectRate = 0.1f;
 			Generator.BonusInsectRate = 0.01f;
 			
 			InsectsGenerator.SpawnDelay = 0.3f;
 		}//		
 		
-		private void StopFastSpeed()
+		private static void StopFastSpeed()
 		{
 			FastSpeedActiv = false;
 			StartTimeFastSpeed = 0f;
 			float standartSpeed = 1f;
-			Generator.SpeedBonus = standartSpeed;
+			InsectInfo.SpeedBonus = standartSpeed;
 		}
 		
-		private void StopMultiplyScores ()
+		private static void StopMultiplyScores ()
 		{
 			MultiplyScoresActiv = false;
 			StartTimeMultipliyScores = 0f;

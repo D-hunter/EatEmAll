@@ -141,11 +141,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd485a18ca565cc479dc798ea4166e19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 180
+  Speed: 190
   OnEatScoreAdd: 0
   OnEatSatietyAdd: 0
   OnDestroySatietySub: 0
   OnDestroyScoreAdd: 0
+  IsBonusInsect: 1
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1

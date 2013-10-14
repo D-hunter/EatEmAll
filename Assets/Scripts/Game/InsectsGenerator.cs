@@ -32,8 +32,8 @@ namespace Assets.Scripts.Game
 		public static float ExtraInsectRate = 0.1f;
 		public static float BonusInsectRate = 0.01f;
 		
-		private static float S_GreenInsectRate = 0.46f;
-		private static float S_RedInsectRate = 0.54f;
+		public static float S_GreenInsectRate = 0.46f;
+		public static float S_RedInsectRate = 0.54f;
 		
 		private static float E_GreenInsectRate = 0.5f;
 		private static float E_YellowInsectRate = 0.5f;
@@ -86,9 +86,6 @@ namespace Assets.Scripts.Game
 			}
 			
             GameObject currentSpawnPoint = spawnPoints[ChooseSpawnNumber()];
-			
-			currentInsect.GetComponent<InsectInfo>().Speed*= SpeedBonus;
-			currentInsect.GetComponent<InsectInfo>().OnEatScoreAdd *= ScoreBonus;
 			
             Object.Instantiate(currentInsect,currentSpawnPoint.transform.position, currentSpawnPoint.transform.rotation);
         }

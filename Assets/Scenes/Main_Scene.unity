@@ -191,7 +191,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 241
+  orthographic size: 155.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2064e9f0fa320c740b88b6069bd81582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnitToPixel: 1
+  isUnitToPixel: 0
   isAutoUnitToPixel: 0
 --- !u!1 &264882795
 GameObject:
@@ -880,7 +880,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6b957f2c35f4f4997803101e6fdefd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnPoints: []
+  SpawnPoints:
+  - {fileID: 1899867372}
+  - {fileID: 176362253}
+  - {fileID: 123806999}
 --- !u!23 &1555132303
 Renderer:
   m_ObjectHideFlags: 0
@@ -1487,7 +1490,6 @@ MonoBehaviour:
   - {fileID: 100000, guid: 03c59e8e330a05848a80b75b03336792, type: 2}
   - {fileID: 100000, guid: cd0fb1c153854044eb50037ce42cd1bf, type: 2}
   - {fileID: 100000, guid: 4face7349bd04744b9abe2ee31f1a3cf, type: 2}
-  SpawnDelay: .300000012
 --- !u!4 &2117256671
 Transform:
   m_ObjectHideFlags: 0
