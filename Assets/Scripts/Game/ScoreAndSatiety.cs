@@ -31,7 +31,6 @@ namespace Assets.Scripts.Game
 
         private void InitializeScale()
         {
-            SatietyScale = gameObject;
             SatietyScale.transform.localScale = new Vector3(SatietyScale.transform.localScale.x, Satiety * 2, SatietyScale.transform.localScale.z);
             _oldSatietyScale = SatietyScale.transform.localScale;
         }
@@ -52,14 +51,11 @@ namespace Assets.Scripts.Game
 
         private int OffsetDirection()
         {
-            if (Satiety >= oldSatiety)
+            if (Satiety != oldSatiety)
             {
-                return 1;
+                return -1;
             }
-            else
-            {
-                return -1;    
-            }
+            return 1;
         }
 
         private void ChangeScaleSize(int offsetDirection)
