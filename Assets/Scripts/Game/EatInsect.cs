@@ -24,22 +24,18 @@ namespace Assets.Scripts.Game
             if (controlParameter <= 0.25f)
             {
                 Bonus.StartSlowSpeed();
-				Debug.Log("Try START BONUS");
             }
             if (controlParameter > 0.25f && controlParameter <= 0.50f)
             {
                 Bonus.StartMultiplyScores();
-				Debug.Log("Try START BONUS");
             }
             if (controlParameter > 0.50f && controlParameter <= 0.75f)
             {
 				Bonus.StartFastSpeed();
-				Debug.Log("Try START BONUS");
             }
 			if (controlParameter > 0.75f && controlParameter <= 1f)
             {
 				Bonus.StartSwarm();
-				Debug.Log("Try START BONUS");
             }
         }
 

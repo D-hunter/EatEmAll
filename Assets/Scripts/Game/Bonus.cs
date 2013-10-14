@@ -37,7 +37,6 @@ namespace Assets.Scripts.Game
 				if(StartTimeSlowSpeed+DurationSlowSpeed<Time.time)
 				{
  					StopSlowSpeed();
-					Debug.Log("starting slowspeed");
 				}
 			}
 			if(SwarmActiv)
@@ -45,7 +44,6 @@ namespace Assets.Scripts.Game
 				if(StartTimeSwarm+DurationSwarm<Time.time)
 				{
 					StopSwarm();
-					Debug.Log("strarting swarmmmm");
 				}
 			}
 			if(MultiplyScoresActiv)
@@ -53,7 +51,6 @@ namespace Assets.Scripts.Game
 				if(StartTimeMultipliyScores+DurationMultiplyScores<Time.time)
 				{
 					StopMultiplyScores();
-					Debug.Log("strating multiScore");
 				}
 			}
 			if(FastSpeedActiv)
@@ -61,7 +58,6 @@ namespace Assets.Scripts.Game
 				if(StartTimeFastSpeed+DurationFastSpeed<Time.time)
 				{
 					StopFastSpeed();
-					Debug.Log("strating fastSpeed");
 				}
 			}
 		}
@@ -90,6 +86,8 @@ namespace Assets.Scripts.Game
 			Generator.ExtraInsectRate = -1f;
 			Generator.BonusInsectRate = -1f;
 			InsectsGenerator.SpawnDelay = 0.1f;
+			
+			InsectInfo.Controler = -1;
 		}
 		
 		public static void StartMultiplyScores()
@@ -134,6 +132,8 @@ namespace Assets.Scripts.Game
 			Generator.BonusInsectRate = 0.01f;
 			
 			InsectsGenerator.SpawnDelay = 0.3f;
+			
+			InsectInfo.Controler = 1;
 		}//		
 		
 		private static void StopFastSpeed()
