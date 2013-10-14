@@ -146,6 +146,7 @@ MonoBehaviour:
   OnEatSatietyAdd: 10
   OnDestroySatietySub: -20
   OnDestroyScoreAdd: 0
+  IsBonusInsect: 0
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1
