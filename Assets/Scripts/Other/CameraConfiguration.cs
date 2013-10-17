@@ -18,6 +18,8 @@ namespace Assets.Scripts.Other
             {
                 SetUniform();
             }
+
+            SetPosition();
         }
 
         private void SetScreenOrientation()
@@ -40,6 +42,11 @@ namespace Assets.Scripts.Other
             {
                 camera.orthographicSize = orthographicSize;
             }
+        }
+
+        private void SetPosition()
+        {
+            transform.position = new Vector3(Screen.width / 2f, Screen.height / 2f, -30f);
         }
     }
 }
