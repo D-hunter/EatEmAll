@@ -15,7 +15,7 @@ namespace Assets.Scripts.Game
 		public byte OnDestroyScoreAdd = 0;
 		public bool IsBonusInsect = false;
 		
-		public static int ControlParam=1;
+		public static int ControlParam=1; 
 		
         private void Start()
         {		

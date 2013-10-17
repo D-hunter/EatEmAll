@@ -99,7 +99,7 @@ namespace Assets.Scripts.Game
 			Generator.S_RedInsectRate = 0f;
 			Generator.ExtraInsectRate = -1f;
 			Generator.BonusInsectRate = -1f;
-			InsectsGenerator.SpawnDelay = 0.1f;
+			InsectsGenerator.SpawnDelayMultiplier = 0.37f;
 			
 			InsectInfo.ControlParam = -1;
 		}
@@ -157,7 +157,7 @@ namespace Assets.Scripts.Game
 			Generator.ExtraInsectRate = 0.1f;
 			Generator.BonusInsectRate = 0.01f;
 			
-			InsectsGenerator.SpawnDelay = 0.3f;
+			InsectsGenerator.SpawnDelayMultiplier = 1;
 			
 			InsectInfo.ControlParam = 1;
 		}//		
