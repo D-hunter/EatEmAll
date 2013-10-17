@@ -15,13 +15,13 @@ namespace Assets.Scripts.Game
 		public byte OnDestroyScoreAdd = 0;
 		public bool IsBonusInsect = false;
 		
-		public static int Controler=1;
+		public static int ControlParam=1;
 		
         private void Start()
         {		
             FlySound();
 			Speed = BasicSpeed*SpeedBonus;
-			OnDestroySatietySub*=Controler;
+			OnDestroySatietySub*=ControlParam;
 			OnEatScoreAdd = BasicOnEatScoreAdd*ScoreMultiplier;
         }
 
