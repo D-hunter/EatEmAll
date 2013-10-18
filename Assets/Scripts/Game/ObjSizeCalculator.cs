@@ -11,8 +11,8 @@ namespace Assets.Scripts.Game
 
         void Start()
         {
+            CalculatePercents();
             CalibrateSizeAndPosition();
-            
         }
 
         void Update()
@@ -35,6 +35,10 @@ namespace Assets.Scripts.Game
             }
         }
 
+        private void ChooseSettingsToSet(SceneObject currentObject)
+        {
+            
+        }
     }
 
     [System.Serializable]
@@ -45,5 +49,10 @@ namespace Assets.Scripts.Game
         public float TopPercent;
         public float WidthPercent;
         public float HeightPercent;
+
+        public bool ChangeLeft = true;
+        public bool ChangeTop = true;
+        public bool ChangeWidth = true;
+        public bool ChangeHeight = true;
     }
 }
