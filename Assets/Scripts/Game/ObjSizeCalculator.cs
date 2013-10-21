@@ -5,7 +5,7 @@ namespace Assets.Scripts.Game
     [ExecuteInEditMode]
     public class ObjSizeCalculator : MonoBehaviour
     {
-        public SceneObject[] SceneObjects = new SceneObject[1];
+        public SceneObject SceneObject = new SceneObject();
         public float heightPercent;
         public float widthPercent;
 
@@ -13,11 +13,6 @@ namespace Assets.Scripts.Game
         {
             CalculatePercents();
             CalibrateSizeAndPosition();
-        }
-
-        void Update()
-        {
-            CalculatePercents();
         }
 
         private void CalculatePercents()
@@ -28,16 +23,29 @@ namespace Assets.Scripts.Game
 
         private void CalibrateSizeAndPosition()
         {
-            for (int i = 0; i < SceneObjects.Length; i++)
-            {
-                SceneObjects[i].SceneElement.transform.position = new Vector3(SceneObjects[i].LeftPercent * widthPercent, SceneObjects[i].TopPercent * heightPercent);
-                SceneObjects[i].SceneElement.transform.localScale = new Vector3(SceneObjects[i].WidthPercent * widthPercent, SceneObjects[i].HeightPercent * heightPercent, 1f);
-            }
+            ChooseSettingsToSet(SceneObject);
+//            SceneObject.SceneElement.transform.position = new Vector3(SceneObject.LeftPercent * widthPercent, SceneObject.TopPercent * heightPercent, SceneObject.SceneElement.transform.position.z);
+//            SceneObject.SceneElement.transform.localScale = new Vector3(SceneObject.WidthPercent * widthPercent, SceneObject.HeightPercent * heightPercent, 1f);
         }
 
         private void ChooseSettingsToSet(SceneObject currentObject)
         {
-            
+            if (currentObject.ChangeLeft)
+            {
+                SceneObject.SceneElement.transform.position = new Vector3(SceneObject.LeftPercent * widthPercent, SceneObject.SceneElement.transform.position.y,SceneObject.SceneElement.transform.position.z);
+            }
+            if (currentObject.ChangeTop)
+            {
+                SceneObject.SceneElement.transform.position = new Vector3(SceneObject.SceneElement.transform.position.x, SceneObject.TopPercent * heightPercent, SceneObject.SceneElement.transform.position.z);
+            }
+            if (currentObject.ChangeWidth)
+            {
+                SceneObject.SceneElement.transform.localScale = new Vector3(SceneObject.WidthPercent * widthPercent, SceneObject.SceneElement.transform.localScale.y, 1f);
+            }
+            if (currentObject.ChangeHeight)
+            {
+                SceneObject.SceneElement.transform.localScale = new Vector3(SceneObject.SceneElement.transform.localScale.x, SceneObject.HeightPercent * heightPercent, 1f);
+            }
         }
     }
 
