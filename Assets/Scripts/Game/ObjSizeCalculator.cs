@@ -9,7 +9,7 @@ namespace Assets.Scripts.Game
         public float heightPercent;
         public float widthPercent;
 
-        void Start()
+        private void Start()
         {
             CalculatePercents();
             CalibrateSizeAndPosition();
@@ -24,15 +24,13 @@ namespace Assets.Scripts.Game
         private void CalibrateSizeAndPosition()
         {
             ChooseSettingsToSet(SceneObject);
-//            SceneObject.SceneElement.transform.position = new Vector3(SceneObject.LeftPercent * widthPercent, SceneObject.TopPercent * heightPercent, SceneObject.SceneElement.transform.position.z);
-//            SceneObject.SceneElement.transform.localScale = new Vector3(SceneObject.WidthPercent * widthPercent, SceneObject.HeightPercent * heightPercent, 1f);
         }
 
         private void ChooseSettingsToSet(SceneObject currentObject)
         {
             if (currentObject.ChangeLeft)
             {
-                SceneObject.SceneElement.transform.position = new Vector3(SceneObject.LeftPercent * widthPercent, SceneObject.SceneElement.transform.position.y,SceneObject.SceneElement.transform.position.z);
+                SceneObject.SceneElement.transform.position = new Vector3(SceneObject.LeftPercent * widthPercent, SceneObject.SceneElement.transform.position.y, SceneObject.SceneElement.transform.position.z);
             }
             if (currentObject.ChangeTop)
             {

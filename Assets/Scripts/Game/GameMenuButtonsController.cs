@@ -27,24 +27,24 @@ namespace Assets.Scripts.Game
         private void Start()
         {
             LoadRecord();
-            GetScreenParameters();
-            CalibratePosition();
-            SetSize();
+//            GetScreenParameters();
+//            CalibratePosition();
+//            SetSize();
             SetTextures();
         }
 
         private void Update()
         {
-            GetScreenParameters();
+//            GetScreenParameters();
             ShowButtons();
-            CalibratePosition();
+//            CalibratePosition();
             HandleTap();
         }
 
-        private void GetScreenParameters()
-        {
-            _screenWidth = Screen.width;
-        }
+//        private void GetScreenParameters()
+//        {
+//            _screenWidth = Screen.width;
+//        }
 
         private void HandleTap()
         {
@@ -113,23 +113,23 @@ namespace Assets.Scripts.Game
             Background.renderer.material = BackgroundMaterial;
         }
 
-        private void CalibratePosition()
-        {
-            transform.position = new Vector3(0, 0, 0);
+//        private void CalibratePosition()
+//        {
+//            transform.position = new Vector3(0, 0, 0);
+//
+//            GameMenu.transform.position = new Vector3(-_screenWidth / 3, _screenWidth / 1.65f, ZDepth);
+//            ToMenu.transform.position = new Vector3(0, _screenWidth / 6, ZDepth);
+//            Resume.transform.position = new Vector3(0, -_screenWidth / 6, ZDepth);
+//            Background.transform.position = new Vector3(0, 0, 0);
+//        }
 
-            GameMenu.transform.position = new Vector3(-_screenWidth / 3, _screenWidth / 1.65f, ZDepth);
-            ToMenu.transform.position = new Vector3(0, _screenWidth / 6, ZDepth);
-            Resume.transform.position = new Vector3(0, -_screenWidth / 6, ZDepth);
-            Background.transform.position = new Vector3(0, 0, 0);
-        }
-
-        private void SetSize()
-        {
-            GameMenu.transform.localScale = new Vector3(_screenWidth / 4, _screenWidth / 4, 1);
-            ToMenu.transform.localScale = new Vector3(_screenWidth / 4, _screenWidth / 4, 1);
-            Resume.transform.localScale = new Vector3(_screenWidth / 4, _screenWidth / 4, 1);
-            Background.transform.localScale = new Vector3(_screenWidth, _screenWidth * 2f, 1);
-        }
+//        private void SetSize()
+//        {
+//            GameMenu.transform.localScale = new Vector3(_screenWidth / 4, _screenWidth / 4, 1);
+//            ToMenu.transform.localScale = new Vector3(_screenWidth / 4, _screenWidth / 4, 1);
+//            Resume.transform.localScale = new Vector3(_screenWidth / 4, _screenWidth / 4, 1);
+//            Background.transform.localScale = new Vector3(_screenWidth, _screenWidth * 2f, 1);
+//        }
 
         private void ShowButtons()
         {
