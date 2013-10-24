@@ -9,16 +9,19 @@ namespace Assets.Scripts.Game
 		public static bool SwarmActiv = false;
 		public static bool MultiplyScoresActiv = false;
 		public static bool FastSpeedActiv = false;
-		
+		public static bool FullSatietyActiv;
+			
 		private static float StartTimeSlowSpeed;
 		private static float StartTimeSwarm;
 		private static float StartTimeMultipliyScores;
 		private static float StartTimeFastSpeed;
+		private static float StartTimeFullSatiety;
 		
 		private float DurationSlowSpeed = 10f;
 		private float DurationSwarm = 6f;
 		private float DurationMultiplyScores = 8f;
 		private float DurationFastSpeed = 10f;
+		private float DurationFullSatiety = 8f;
 		// Use this for initialization
 		void Start () {
 		
@@ -60,6 +63,17 @@ namespace Assets.Scripts.Game
 					StopFastSpeed();
 				}
 			}
+			if(FullSatietyActiv)
+			{
+				if(StartTimeFullSatiety+DurationFullSatiety<Time.time)
+				{
+					StopFullSatiety();	 
+				}
+			}
+			if(FullSatietyActiv&&ScoreAndSatiety.Scores>100)
+			{
+				ScoreAndSatiety.Scores = 100;	
+			}
 		}
 		
 		public static void StartSlowSpeed()
@@ -85,9 +99,9 @@ namespace Assets.Scripts.Game
 			Generator.S_RedInsectRate = 0f;
 			Generator.ExtraInsectRate = -1f;
 			Generator.BonusInsectRate = -1f;
-			InsectsGenerator.SpawnDelay = 0.1f;
+			InsectsGenerator.SpawnDelayMultiplier = 0.37f;
 			
-			InsectInfo.Controler = -1;
+			InsectInfo.ControlParam = -1;
 		}
 		
 		public static void StartMultiplyScores()
@@ -112,6 +126,18 @@ namespace Assets.Scripts.Game
 			InsectInfo.SpeedBonus = fastSpeed;
 		}
 		
+		public static void StartFullSatiety()
+		{
+			if(FullSatietyActiv) return;
+			
+			if(MultiplyScoresActiv) StopMultiplyScores();
+			FullSatietyActiv = true;
+			StartTimeFullSatiety = Time.time;
+			
+			byte scoreMultiplier = 2;
+			InsectInfo.ScoreMultiplier = scoreMultiplier;			
+		}
+		
 		private static void StopSlowSpeed()
 		{
 			SlowSpeedActiv = false;
@@ -131,9 +157,9 @@ namespace Assets.Scripts.Game
 			Generator.ExtraInsectRate = 0.1f;
 			Generator.BonusInsectRate = 0.01f;
 			
-			InsectsGenerator.SpawnDelay = 0.3f;
+			InsectsGenerator.SpawnDelayMultiplier = 1;
 			
-			InsectInfo.Controler = 1;
+			InsectInfo.ControlParam = 1;
 		}//		
 		
 		private static void StopFastSpeed()
@@ -148,6 +174,14 @@ namespace Assets.Scripts.Game
 		{
 			MultiplyScoresActiv = false;
 			StartTimeMultipliyScores = 0f;
+			byte standartMultiply = 1;
+			Generator.ScoreBonus = standartMultiply;
+		}
+		
+		private static void StopFullSatiety()
+		{
+			FullSatietyActiv = false;
+			StartTimeFullSatiety = 0f;
 			byte standartMultiply = 1;
 			Generator.ScoreBonus = standartMultiply;
 		}

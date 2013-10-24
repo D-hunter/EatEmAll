@@ -8,6 +8,9 @@ namespace Assets.Scripts.Game
         public static int Satiety = 50;
         public GameObject SatietyBackground;
         public GameObject SatietyScale;
+		
+		public static int FullSatiety = 100;
+		public static int HalfSatiety = 50;
 
         private int oldSatiety = Satiety;
         private Vector3 _oldSatietyScale;
@@ -56,7 +59,7 @@ namespace Assets.Scripts.Game
                 return -1;
             }
             return 1;
-        }
+        } 
 
         private void ChangeScaleSize(int offsetDirection)
         {
@@ -86,5 +89,9 @@ namespace Assets.Scripts.Game
                 Satiety = 0;
             }
         }
+		private void CheckFulfilledSatiety()
+		{
+			if(Satiety>=100) Bonus.StartFullSatiety();
+		}
     }
 }

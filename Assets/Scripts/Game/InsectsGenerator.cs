@@ -8,17 +8,23 @@ namespace Assets.Scripts.Game
         public GameObject[] SpawnPoints;
         public GameObject[] Insects;
 		private float[] DropRates;
-		public static float SpawnDelay = 0.3f;
+		private static float BasicSpawnDelay = 0.27f;
+		public static float SpawnDelayMultiplier = 1;
+		private static float _randomTime;
+		public float SpawnDelay;
 		float CurrentTime;
 		
 		private void Start()
 		{
 			CurrentTime = Time.time;	
+			SpawnDelay = BasicSpawnDelay*SpawnDelayMultiplier;
 		}
 		
         private void Update()
-		{			
-		if(CurrentTime+SpawnDelay<=Time.time)
+		{		
+			SpawnDelay = BasicSpawnDelay*SpawnDelayMultiplier*_randomTime;
+			_randomTime= 1+Random.value/4;
+			if(CurrentTime+SpawnDelay<=Time.time)
 			{
 				Generator.SpawnTheInsect(Insects,SpawnPoints);
 				CurrentTime = Time.time;
