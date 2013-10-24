@@ -11,31 +11,17 @@ namespace Assets.Scripts.Game
         public Material ExitActive;
         public Material ExitPassive;
 
-        public const float ZDepth = 100;
+        private bool isPlayActive = false;
+        private bool isExitActive = false;
 
-        private bool isPlay = false;
-        private bool isExit = false;
-
-        private float _screenWidth;
-        
-        void Start()
+        private void Start()
         {
-            GetScreenParameters();
-            CalibratePosition();
             SetTextures();
-            SetSize();
         }
 
-        void Update()
+        private void Update()
         {
-            CalibratePosition();
-            SetSize();
             HandleTap();
-        }
-
-        private void GetScreenParameters()
-        {
-            _screenWidth = Screen.width;
         }
 
         private void HandleTap()
@@ -60,7 +46,7 @@ namespace Assets.Scripts.Game
                             }
                             case "Exit":
                             {
-                                PushExitButton(); 
+                                PushExitButton();
                                 break;
                             }
                         }
@@ -71,35 +57,22 @@ namespace Assets.Scripts.Game
 
         private void PushPlayButton()
         {
-            isPlay = true;
+            isPlayActive = true;
             SetTextures();
             Application.LoadLevel(1);
         }
 
         private void PushExitButton()
         {
-            isExit = true;
+            isExitActive = true;
             SetTextures();
             Application.Quit();
         }
 
         private void SetTextures()
         {
-            Play.renderer.material = !isPlay ? PlayPassive : PlayActive;
-            Exit.renderer.material = !isExit ? ExitPassive : ExitActive;
-        }
-
-        private void CalibratePosition()
-        {
-            transform.position = Vector3.zero;
-            Play.transform.position = new Vector3(0, _screenWidth / 4, ZDepth);
-            Exit.transform.position = new Vector3(0, -_screenWidth / 4, ZDepth);
-        }
-
-        private void SetSize()
-        {
-            Play.transform.localScale = new Vector3(_screenWidth / 4, _screenWidth / 4, 1);
-            Exit.transform.localScale = new Vector3(_screenWidth / 4, _screenWidth / 4, 1);
+            Play.renderer.material = !isPlayActive ? PlayPassive : PlayActive;
+            Exit.renderer.material = !isExitActive ? ExitPassive : ExitActive;
         }
     }
 }

@@ -11,6 +11,7 @@ namespace Assets.Scripts.Game
 		
 		public static int FullSatiety = 100;
 		public static int HalfSatiety = 50;
+        public TextMesh ScoreLable;
 
         private int oldSatiety = Satiety;
         private Vector3 _oldSatietyScale;
@@ -25,10 +26,6 @@ namespace Assets.Scripts.Game
         {
             CheckSatietyState();
             WhenToChangeScale();
-        }
-
-        private void OnGUI()
-        {
             ShowScoreOnBox();
         }
 
@@ -40,8 +37,7 @@ namespace Assets.Scripts.Game
 
         private void ShowScoreOnBox()
         {
-            GUI.Box(new Rect(Screen.width / 3f, 10, Screen.width / 2f, Screen.width / 10f), "Scores  = " + Scores);
-            new Rect();
+            ScoreLable.text = "Scores: " + Scores;
         }
 
         private void WhenToChangeScale()

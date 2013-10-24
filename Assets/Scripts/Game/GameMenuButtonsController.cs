@@ -16,34 +16,20 @@ namespace Assets.Scripts.Game
         public GameObject Background;
         public Material BackgroundMaterial;
 
-        public const float ZDepth = -15;
+        private bool _isGameMenuActive = false;
+        private bool _isToMenuActive = false;
+        private bool _isResumeActive = false;
 
-        private bool _isGameMenu = false;
-        private bool _isToMenu = false;
-        private bool _isResume = false;
-
-        private float _screenWidth;
-        
         private void Start()
         {
             LoadRecord();
-            GetScreenParameters();
-            CalibratePosition();
-            SetSize();
             SetTextures();
         }
 
         private void Update()
         {
-            GetScreenParameters();
-            ShowButtons();
-            CalibratePosition();
+            ShowGameMenu();
             HandleTap();
-        }
-
-        private void GetScreenParameters()
-        {
-            _screenWidth = Screen.width;
         }
 
         private void HandleTap()
@@ -62,20 +48,20 @@ namespace Assets.Scripts.Game
                         switch (hitTag)
                         {
                             case "Menu":
-                                {
-                                    PushGameMenuButton();
-                                    break;
-                                }
+                            {
+                                PushGameMenuButton();
+                                break;
+                            }
                             case "Resume":
-                                {
-                                    PushResumeButton();
-                                    break;
-                                }
+                            {
+                                PushResumeButton();
+                                break;
+                            }
                             case "ToMainMenu":
-                                {
-                                    PushToMenuButton();
-                                    break;
-                                }
+                            {
+                                PushToMenuButton();
+                                break;
+                            }
                         }
                     }
                 }
@@ -84,56 +70,38 @@ namespace Assets.Scripts.Game
 
         private void PushGameMenuButton()
         {
-            _isGameMenu = true;
-            MakePause();
+            _isGameMenuActive = true;
+            ActivateGamePause();
         }
 
         private void PushToMenuButton()
         {
-            _isToMenu = true;
-            _isGameMenu = false;
+            _isToMenuActive = true;
+            _isGameMenuActive = false;
             SaveRecord();
             ClearScores();
-            MakeUnpause();
+            DeactivateGamePause();
             Application.LoadLevel(0);
         }
 
         private void PushResumeButton()
         {
-            _isResume = true;
-            _isGameMenu = false;
-            MakeUnpause();
+            _isResumeActive = true;
+            _isGameMenuActive = false;
+            DeactivateGamePause();
         }
 
         private void SetTextures()
         {
-            GameMenu.renderer.material = !_isGameMenu ? GameMenuPassive : GameMenuActive;
-            ToMenu.renderer.material = !_isToMenu ? ToMenuPassive : ToMenuActive;
-            Resume.renderer.material = !_isResume ? ResumePassive : ResumeActive;
+            GameMenu.renderer.material = !_isGameMenuActive ? GameMenuPassive : GameMenuActive;
+            ToMenu.renderer.material = !_isToMenuActive ? ToMenuPassive : ToMenuActive;
+            Resume.renderer.material = !_isResumeActive ? ResumePassive : ResumeActive;
             Background.renderer.material = BackgroundMaterial;
         }
 
-        private void CalibratePosition()
+        private void ShowGameMenu()
         {
-            transform.position = new Vector3(0, 0, 0);
-
-            GameMenu.transform.position = new Vector3(-_screenWidth / 3, _screenWidth / 1.65f, ZDepth);
-            ToMenu.transform.position = new Vector3(0, _screenWidth / 6, ZDepth);
-            Resume.transform.position = new Vector3(0, -_screenWidth / 6, ZDepth);
-            Background.transform.position = new Vector3(0, 0, 0);
-        }
-
-        private void SetSize()
-        {
-            GameMenu.transform.localScale = new Vector3(_screenWidth / 4, _screenWidth / 4, 1);
-            ToMenu.transform.localScale = new Vector3(_screenWidth / 4, _screenWidth / 4, 1);
-            Resume.transform.localScale = new Vector3(_screenWidth / 4, _screenWidth / 4, 1);
-            Background.transform.localScale = new Vector3(_screenWidth, _screenWidth * 2f, 1);
-        }
-
-        private void ShowButtons()
-        {
-            if (!_isGameMenu)
+            if (!_isGameMenuActive)
             {
                 GameMenu.renderer.enabled = true;
                 ToMenu.renderer.enabled = false;
@@ -159,12 +127,12 @@ namespace Assets.Scripts.Game
             }
         }
 
-        private void MakePause()
+        private void ActivateGamePause()
         {
             Time.timeScale = 0;
         }
 
-        private void MakeUnpause()
+        private void DeactivateGamePause()
         {
             Time.timeScale = 1;
         }
@@ -176,7 +144,7 @@ namespace Assets.Scripts.Game
             if (ShowRecords.BestScore < score)
             {
                 ShowRecords.SaveReecord(score);
-            } 
+            }
         }
 
         private void LoadRecord()
