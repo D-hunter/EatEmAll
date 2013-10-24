@@ -166,7 +166,7 @@ MonoBehaviour:
     LeftPercent: 0
     TopPercent: 0
     WidthPercent: 5.5
-    HeightPercent: 5
+    HeightPercent: 3.5
     ChangeLeft: 0
     ChangeTop: 0
     ChangeWidth: 1

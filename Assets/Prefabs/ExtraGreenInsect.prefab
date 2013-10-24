@@ -14,6 +14,7 @@ GameObject:
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400000}
   - 82: {fileID: 8200000}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: ExtraGreenInsect
   m_TagString: ExtraGreen
@@ -141,12 +142,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd485a18ca565cc479dc798ea4166e19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BasicSpeed: 100
   Speed: 150
+  BasicOnEatScoreAdd: 1
   OnEatScoreAdd: 2
   OnEatSatietyAdd: 10
   OnDestroySatietySub: -20
   OnDestroyScoreAdd: 0
   IsBonusInsect: 0
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19f6e8a6c8456b649937d6afd70b795e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneObject:
+    SceneElement: {fileID: 100000}
+    LeftPercent: 0
+    TopPercent: 0
+    WidthPercent: 10
+    HeightPercent: 6
+    ChangeLeft: 0
+    ChangeTop: 0
+    ChangeWidth: 1
+    ChangeHeight: 1
+  heightPercent: 0
+  widthPercent: 0
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1
