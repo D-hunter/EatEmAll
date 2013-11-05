@@ -186,7 +186,7 @@ GameObject:
   - 4: {fileID: 431225887}
   - 114: {fileID: 431225888}
   m_Layer: 0
-  m_Name: Buttons
+  m_Name: ButtonsController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -283,7 +283,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 236
+  orthographic size: 296.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -298,7 +298,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 760826605}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 188, y: 474, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -326,8 +326,9 @@ GameObject:
   - 33: {fileID: 779186501}
   - 23: {fileID: 779186502}
   - 65: {fileID: 779186503}
+  - 114: {fileID: 779186504}
   m_Layer: 0
-  m_Name: Play
+  m_Name: ButtonPlay
   m_TagString: Play
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -340,8 +341,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 779186499}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 100, z: 68.4482727}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalPosition: {x: 166.5, y: 385.449982, z: 68.4482727}
+  m_LocalScale: {x: 99.8999939, y: 106.739998, z: 1}
   m_Children: []
   m_Father: {fileID: 431225887}
 --- !u!33 &779186501
@@ -381,6 +382,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &779186504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 779186499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19f6e8a6c8456b649937d6afd70b795e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneObject:
+    SceneElement: {fileID: 779186499}
+    LeftPercent: 50
+    TopPercent: 65
+    WidthPercent: 30
+    HeightPercent: 18
+    ChangeLeft: 1
+    ChangeTop: 1
+    ChangeWidth: 1
+    ChangeHeight: 1
+  heightPercent: 5.92999983
+  widthPercent: 3.32999992
 --- !u!1 &781498700
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,8 +416,9 @@ GameObject:
   - 23: {fileID: 781498702}
   - 33: {fileID: 781498703}
   - 65: {fileID: 781498704}
+  - 114: {fileID: 781498705}
   m_Layer: 0
-  m_Name: Exit
+  m_Name: ButtonExit
   m_TagString: Exit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -406,8 +431,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 781498700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -100, z: 63.7982712}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalPosition: {x: 166.5, y: 207.549988, z: 63.7982712}
+  m_LocalScale: {x: 99.8999939, y: 106.739998, z: 1}
   m_Children: []
   m_Father: {fileID: 431225887}
 --- !u!23 &781498702
@@ -447,6 +472,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &781498705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 781498700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19f6e8a6c8456b649937d6afd70b795e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneObject:
+    SceneElement: {fileID: 781498700}
+    LeftPercent: 50
+    TopPercent: 35
+    WidthPercent: 30
+    HeightPercent: 18
+    ChangeLeft: 1
+    ChangeTop: 1
+    ChangeWidth: 1
+    ChangeHeight: 1
+  heightPercent: 5.92999983
+  widthPercent: 3.32999992
 --- !u!1 &1822541325
 GameObject:
   m_ObjectHideFlags: 0
