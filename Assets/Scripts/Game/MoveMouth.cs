@@ -12,7 +12,7 @@ namespace Assets.Scripts.Game
             startPosition = transform.position;
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             MoveEater();
         }
@@ -23,11 +23,11 @@ namespace Assets.Scripts.Game
             if (Input.touchCount > 0)
             {
                 touch = Input.GetTouch(0);
-                if (touch.phase == TouchPhase.Began)
+                if (touch.phase != TouchPhase.Ended)
                 {
                     Ray ray = Camera.main.ScreenPointToRay(touch.position);
                     RaycastHit hit = new RaycastHit();
-                    if (Physics.Raycast(ray, out hit))
+                    if (Physics.Raycast(ray, out hit) && (hit.collider.tag == "top" || hit.collider.tag == "center" || hit.collider.tag == "bottom"))
                     {
                         string tag = hit.collider.gameObject.tag;
                         switch (tag)
@@ -47,7 +47,7 @@ namespace Assets.Scripts.Game
                         }
                     }
                 }
-                else if (!(touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved))
+                else
                 {
                     transform.position = startPosition;
                 }
