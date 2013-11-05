@@ -23,7 +23,7 @@ namespace Assets.Scripts.Game
             if (Input.touchCount > 0)
             {
                 touch = Input.GetTouch(0);
-                if (touch.phase == TouchPhase.Began)
+                if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved)
                 {
                     Ray ray = Camera.main.ScreenPointToRay(touch.position);
                     RaycastHit hit = new RaycastHit();
@@ -47,7 +47,7 @@ namespace Assets.Scripts.Game
                         }
                     }
                 }
-                else if (!(touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved))
+                else if (touch.phase == TouchPhase.Canceled || touch.phase == TouchPhase.Ended)
                 {
                     transform.position = startPosition;
                 }
