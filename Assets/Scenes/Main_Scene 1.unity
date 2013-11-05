@@ -399,6 +399,10 @@ Prefab:
       propertyPath: m_TagString
       value: top
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 94977ec961cd6a649b573834c883ddd6, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 94977ec961cd6a649b573834c883ddd6, type: 2}
   m_RootGameObject: {fileID: 676126636}
@@ -1083,6 +1087,10 @@ Prefab:
       propertyPath: m_TagString
       value: bottom
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 94977ec961cd6a649b573834c883ddd6, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 94977ec961cd6a649b573834c883ddd6, type: 2}
   m_RootGameObject: {fileID: 1899867372}
@@ -1138,6 +1146,10 @@ Prefab:
     - target: {fileID: 100000, guid: 94977ec961cd6a649b573834c883ddd6, type: 2}
       propertyPath: m_TagString
       value: center
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 94977ec961cd6a649b573834c883ddd6, type: 2}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 94977ec961cd6a649b573834c883ddd6, type: 2}
