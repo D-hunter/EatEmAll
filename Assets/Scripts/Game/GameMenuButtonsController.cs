@@ -16,9 +16,8 @@ namespace Assets.Scripts.Game
         public GameObject Background;
         public Material BackgroundMaterial;
 
-        private bool _isGameMenuActive = false;
-        private bool _isToMenuActive = false;
-        private bool _isResumeActive = false;
+        public static bool _isGameMenuActive = false;
+        public static bool _isToMenuActive = false;
 
         private void Start()
         {
@@ -68,7 +67,7 @@ namespace Assets.Scripts.Game
             }
         }
 
-        private void PushGameMenuButton()
+        public static void PushGameMenuButton()
         {
             _isGameMenuActive = true;
             ActivateGamePause();
@@ -84,9 +83,8 @@ namespace Assets.Scripts.Game
             Application.LoadLevel(0);
         }
 
-        private void PushResumeButton()
+        public static void PushResumeButton()
         {
-            _isResumeActive = true;
             _isGameMenuActive = false;
             DeactivateGamePause();
         }
@@ -95,7 +93,7 @@ namespace Assets.Scripts.Game
         {
             GameMenu.renderer.material = !_isGameMenuActive ? GameMenuPassive : GameMenuActive;
             ToMenu.renderer.material = !_isToMenuActive ? ToMenuPassive : ToMenuActive;
-            Resume.renderer.material = !_isResumeActive ? ResumePassive : ResumeActive;
+            Resume.renderer.material = !_isGameMenuActive ? ResumePassive : ResumeActive;
             Background.renderer.material = BackgroundMaterial;
         }
 
@@ -127,12 +125,12 @@ namespace Assets.Scripts.Game
             }
         }
 
-        private void ActivateGamePause()
+        public static void ActivateGamePause()
         {
             Time.timeScale = 0;
         }
 
-        private void DeactivateGamePause()
+        public static void DeactivateGamePause()
         {
             Time.timeScale = 1;
         }
