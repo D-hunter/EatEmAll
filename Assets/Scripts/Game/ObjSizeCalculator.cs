@@ -5,11 +5,17 @@ namespace Assets.Scripts.Game
     [ExecuteInEditMode]
     public class ObjSizeCalculator : MonoBehaviour
     {
-        public SceneObject SceneObject = new SceneObject();
+        public SceneObject SceneObject;
         public float heightPercent;
         public float widthPercent;
 
         private void Start()
+        {
+            CalculatePercents();
+            CalibrateSizeAndPosition();
+        }
+
+        private void Update()
         {
             CalculatePercents();
             CalibrateSizeAndPosition();
@@ -48,6 +54,7 @@ namespace Assets.Scripts.Game
     }
 
     [System.Serializable]
+    [ExecuteInEditMode]
     public class SceneObject
     {
         public GameObject SceneElement;
