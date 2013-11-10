@@ -9,12 +9,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 33: {fileID: 3300000}
-  - 136: {fileID: 13600000}
   - 23: {fileID: 2300000}
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400000}
   - 82: {fileID: 8200000}
   - 114: {fileID: 11400002}
+  - 64: {fileID: 6400000}
   m_Layer: 8
   m_Name: GreenInsect
   m_TagString: good
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 158.525345, y: 0, z: 874.515625}
-  m_LocalScale: {x: 1, y: 1, z: 141.839996}
+  m_LocalScale: {x: 200, y: 200, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!23 &2300000
@@ -45,7 +45,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 6938840c41532f945b641528ca88cb56, type: 2}
+  - {fileID: 2100000, guid: efc9e2b7f726042628f95283e95c71ea, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -57,7 +57,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &5400000
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -73,6 +73,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &6400000
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 1
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!82 &8200000
 AudioSource:
   m_ObjectHideFlags: 1
@@ -165,27 +178,14 @@ MonoBehaviour:
     SceneElement: {fileID: 100000}
     LeftPercent: 0
     TopPercent: 0
-    WidthPercent: 5.5
-    HeightPercent: 3.5
+    WidthPercent: 10
+    HeightPercent: 7
     ChangeLeft: 0
     ChangeTop: 0
     ChangeWidth: 1
     ChangeHeight: 1
   heightPercent: 0
   widthPercent: 0
---- !u!136 &13600000
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: .5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
