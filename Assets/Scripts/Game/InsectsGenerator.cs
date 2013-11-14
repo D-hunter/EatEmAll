@@ -13,6 +13,7 @@ namespace Assets.Scripts.Game
 				private static float _randomTime;
 				public float SpawnDelay;
 				float CurrentTime;
+				private int NextStage = 200;
 		
 				private void Start ()
 				{
@@ -23,16 +24,31 @@ namespace Assets.Scripts.Game
 				private void Update ()
 				{		
 						if (ScoreAndSatiety.Satiety > 0) {
-								Debug.Log (ScoreAndSatiety.Satiety);
 								SpawnDelay = BasicSpawnDelay * SpawnDelayMultiplier * _randomTime;
 								_randomTime = 1 + Random.value / 4;
 								if (CurrentTime + SpawnDelay <= Time.time) {
 										Generator.SpawnTheInsect (Insects, SpawnPoints);
 										CurrentTime = Time.time;
 								}	
-						}          
+								if (ScoreAndSatiety.Scores >= NextStage) {
+										CheckDifficult ();
+								}
+						} else {
+								EndGame ();
+						}
+				}
+
+				private static void EndGame ()
+				{
+						Time.timeScale = 0;
+				}
+				private void CheckDifficult ()
+				{
+						NextStage *= 2;
+						InsectInfo.DifficultUp ();
 				}
 		}
+			
 
 		public static class Generator
 		{

@@ -5,7 +5,7 @@ namespace Assets.Scripts.Game
 		public class ScoreAndSatiety : MonoBehaviour
 		{
 				public static int Scores = 0;
-				public static int Satiety = 50;
+				public static float Satiety = 50f;
 				public GameObject SatietyBackground;
 				public GameObject SatietyScale;
 		
@@ -13,7 +13,7 @@ namespace Assets.Scripts.Game
 				public static int HalfSatiety = 50;
 				public TextMesh ScoreLable;
 
-				private int oldSatiety = Satiety;
+				private float oldSatiety = Satiety;
 				private Vector3 _oldSatietyScale;
 
 				private void Awake ()

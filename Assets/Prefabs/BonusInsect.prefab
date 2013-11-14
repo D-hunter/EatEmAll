@@ -29,7 +29,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.030632, y: -8.90427685, z: -2.85446739}
+  m_LocalPosition: {x: 30.030632, y: -8.90427685, z: 100}
   m_LocalScale: {x: 30, y: 20, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,6 +51,9 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!33 &3300000
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -142,8 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd485a18ca565cc479dc798ea4166e19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BasicSpeed: 100
-  Speed: 190
+  Speed: 1200
   BasicOnEatScoreAdd: 1
   OnEatScoreAdd: 0
   OnEatSatietyAdd: 0
