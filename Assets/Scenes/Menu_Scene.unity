@@ -4,13 +4,12 @@
 SceneSettings:
   m_ObjectHideFlags: 0
   m_PVSData: 
-  m_QueryMode: 1
   m_PVSObjectsArray: []
   m_PVSPortalsArray: []
   m_OcclusionBakeSettings:
-    viewCellSize: 1
-    bakeMode: 2
-    memoryUsage: 10485760
+    smallestOccluder: 5
+    smallestHole: .25
+    backfaceThreshold: 100
 --- !u!104 &2
 RenderSettings:
   m_Fog: 0
@@ -23,6 +22,7 @@ RenderSettings:
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: .5
   m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 0}
   m_ObjectHideFlags: 0
@@ -240,7 +240,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 499893116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 125, z: 0}
+  m_LocalPosition: {x: 0, y: 138.446167, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2043486295}
@@ -358,6 +358,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_HDR: 0
+  m_OcclusionCulling: 1
 --- !u!114 &716135615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,6 +383,7 @@ GameObject:
   - 92: {fileID: 760826608}
   - 124: {fileID: 760826607}
   - 81: {fileID: 760826606}
+  - 114: {fileID: 760826611}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -430,7 +432,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1
+  orthographic size: 455
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -438,6 +440,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_HDR: 0
+  m_OcclusionCulling: 1
 --- !u!4 &760826610
 Transform:
   m_ObjectHideFlags: 0
@@ -445,10 +448,23 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 760826605}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 173.5, y: 321.5, z: -30}
+  m_LocalPosition: {x: 255.5, y: 455, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &760826611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 760826605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2064e9f0fa320c740b88b6069bd81582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUnitToPixel: 1
+  isAutoUnitToPixel: 0
 --- !u!1 &793501683
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,7 +553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: b5083cfe83bb875479bd797c61594131, type: 3}
-  trigger: 0
+  trigger: 3
   volume: 1
 --- !u!114 &1148436933
 MonoBehaviour:
@@ -609,7 +625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   automatic: 1
-  manualHeight: 643
+  manualHeight: 910
 --- !u!4 &1460322392
 Transform:
   m_ObjectHideFlags: 0
@@ -618,7 +634,7 @@ Transform:
   m_GameObject: {fileID: 1460322390}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00311041996, y: .00311041996, z: .00311041996}
+  m_LocalScale: {x: .0021978023, y: .0021978023, z: .0021978023}
   m_Children:
   - {fileID: 716135613}
   m_Father: {fileID: 0}
@@ -744,7 +760,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2018476632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.499448359, y: 0, z: 0}
+  m_LocalPosition: {x: -.997907937, y: .5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 793501684}
@@ -803,11 +819,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mMat: {fileID: 2100000, guid: 4f364bbf38566754182e73c5d32fd365, type: 2}
+  mMat: {fileID: 2100000, guid: db8b93cf1707d364fbd0b674c908fcce, type: 2}
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 0
-  mAtlas: {fileID: 11400000, guid: 988cdaef0ceb27b44922be3fb18aa093, type: 2}
+  mAtlas: {fileID: 11400000, guid: 15c184af23104e0429dd9b2beb491339, type: 2}
   mSpriteName: play
 --- !u!1 &2117962297
 GameObject:
@@ -847,9 +863,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mMat: {fileID: 2100000, guid: 4f364bbf38566754182e73c5d32fd365, type: 2}
+  mMat: {fileID: 2100000, guid: db8b93cf1707d364fbd0b674c908fcce, type: 2}
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 0
-  mAtlas: {fileID: 11400000, guid: 988cdaef0ceb27b44922be3fb18aa093, type: 2}
+  mAtlas: {fileID: 11400000, guid: 15c184af23104e0429dd9b2beb491339, type: 2}
   mSpriteName: exit
