@@ -2,7 +2,7 @@
 
 /// <summary>
 /// Event Hook class lets you easily add remote event listener functions to an object.
-/// Example usage: UIEventListener.Add(gameObject).onClick += MyClickFunction;
+/// Example usage: UIEventListener.Add(go).onClick += MyClickFunction;
 /// </summary>
 
 [AddComponentMenu("NGUI/Internal/Event Listener")]

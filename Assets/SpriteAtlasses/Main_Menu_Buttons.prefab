@@ -43,16 +43,16 @@ MonoBehaviour:
   - name: exit
     outer:
       serializedVersion: 2
-      x: 119
-      y: 64
-      width: 64
-      height: 64
+      x: 0
+      y: 34
+      width: 92
+      height: 92
     inner:
       serializedVersion: 2
-      x: 119
-      y: 64
-      width: 64
-      height: 64
+      x: 0
+      y: 34
+      width: 0
+      height: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
@@ -60,16 +60,16 @@ MonoBehaviour:
   - name: play
     outer:
       serializedVersion: 2
-      x: 119
-      y: 13
-      width: 46
-      height: 50
+      x: 128.300003
+      y: 154.100006
+      width: 95
+      height: 102
     inner:
       serializedVersion: 2
-      x: 119
-      y: 13
-      width: 46
-      height: 50
+      x: 128.300003
+      y: 154.100006
+      width: 0
+      height: 0
     paddingLeft: .217391297
     paddingRight: .173913047
     paddingTop: .159999996
@@ -78,15 +78,15 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 10
-      width: 118
-      height: 118
+      y: 128.5
+      width: 128
+      height: 128
     inner:
       serializedVersion: 2
       x: 0
-      y: 10
-      width: 118
-      height: 118
+      y: 128.5
+      width: 1
+      height: 1.00003052
     paddingLeft: .0423728824
     paddingRight: .0423728824
     paddingTop: .0423728824

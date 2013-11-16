@@ -39,7 +39,7 @@ public class UIWidgetInspector : Editor
 		mWidget = target as UIWidget;
 
 #if UNITY_3_4
-		PrefabType type = EditorUtility.GetPrefabType(mWidget.gameObject);
+		PrefabType type = EditorUtility.GetPrefabType(mWidget.go);
 #else
 		PrefabType type = PrefabUtility.GetPrefabType(mWidget.gameObject);
 #endif
@@ -114,7 +114,7 @@ public class UIWidgetInspector : Editor
 			{
 				Undo.RegisterSceneUndo("Depth Change");
 				mWidget.depth = depth;
-				EditorUtility.SetDirty(mWidget.gameObject);
+				EditorUtility.SetDirty(mWidget.go);
 			}
 
 			if (GUILayout.Button("Forward"))

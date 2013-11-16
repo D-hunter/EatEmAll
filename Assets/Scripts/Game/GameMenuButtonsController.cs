@@ -1,127 +1,104 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Assets.Scripts.Game
 {
     public class GameMenuButtonsController : MonoBehaviour
     {
-        public GameObject GameMenu;
-        public Material GameMenuActive;
-        public Material GameMenuPassive;
-        public GameObject Resume;
-        public Material ResumeActive;
-        public Material ResumePassive;
-        public GameObject ToMenu;
-        public Material ToMenuActive;
-        public Material ToMenuPassive;
-        public GameObject Background;
-        public Material BackgroundMaterial;
+        public GameObject GameMenuSprite;
+        public Collider GameMenuButton;
+        public GameObject ResumeSprite;
+        public Collider ResumeButton;
+        public GameObject ToMenuSprite;
+        public Collider ToMenuButton;
+//        public GameObject BackgroundSprite;
+//        public GameObject BackgroundButton;
 
-        public static bool _isGameMenuActive = false;
-        public static bool _isToMenuActive = false;
+
+        public bool _isGameMenuActive = false;
+        public bool _isToMenuActive = false;
 
         private void Start()
         {
             LoadRecord();
-            SetTextures();
-        }
-
-        private void Update()
-        {
-            ShowGameMenu();
-            HandleTap();
-        }
-
-        private void HandleTap()
-        {
-            Touch touch;
-            if (Input.touchCount > 0)
+            try
             {
-                touch = Input.GetTouch(0);
-                if (touch.phase == TouchPhase.Began)
-                {
-                    Ray ray = Camera.main.ScreenPointToRay(touch.position);
-                    RaycastHit hit = new RaycastHit();
-                    if (Physics.Raycast(ray, out hit))
-                    {
-                        string hitTag = hit.collider.gameObject.tag;
-                        switch (hitTag)
-                        {
-                            case "Menu":
-                            {
-                                PushGameMenuButton();
-                                break;
-                            }
-                            case "Resume":
-                            {
-                                PushResumeButton();
-                                break;
-                            }
-                            case "ToMainMenu":
-                            {
-                                PushToMenuButton();
-                                break;
-                            }
-                        }
-                    }
-                }
+                ShowGameMenu();
+            }
+            catch (MissingReferenceException)
+            {
             }
         }
 
-        public static void PushGameMenuButton()
+        public void PushGameMenuButton()
         {
-            _isGameMenuActive = true;
-            ActivateGamePause();
+            try
+            {
+                _isGameMenuActive = true;
+                ActivateGamePause();
+                ShowGameMenu();
+            }
+            catch (MissingReferenceException)
+            {
+            }
         }
 
         private void PushToMenuButton()
         {
-            _isToMenuActive = true;
-            _isGameMenuActive = false;
-            SaveRecord();
-            ClearScores();
-            DeactivateGamePause();
-            Application.LoadLevel(0);
+            try
+            {
+                _isToMenuActive = true;
+                _isGameMenuActive = false;
+                SaveRecord();
+                ClearScores();
+                DeactivateGamePause();
+                Application.LoadLevel(0);
+                ShowGameMenu();
+            }
+            catch (MissingReferenceException)
+            {
+            }
         }
 
-        public static void PushResumeButton()
+        public void PushResumeButton()
         {
-            _isGameMenuActive = false;
-            DeactivateGamePause();
+            try
+            {
+                _isGameMenuActive = false;
+                DeactivateGamePause();
+                ShowGameMenu();
+            }
+            catch (MissingReferenceException)
+            {
+            }
+            
         }
 
-        private void SetTextures()
-        {
-            GameMenu.renderer.material = !_isGameMenuActive ? GameMenuPassive : GameMenuActive;
-            ToMenu.renderer.material = !_isToMenuActive ? ToMenuPassive : ToMenuActive;
-            Resume.renderer.material = !_isGameMenuActive ? ResumePassive : ResumeActive;
-            Background.renderer.material = BackgroundMaterial;
-        }
-
-        private void ShowGameMenu()
+        public void ShowGameMenu()
         {
             if (!_isGameMenuActive)
             {
-                GameMenu.renderer.enabled = true;
-                ToMenu.renderer.enabled = false;
-                Resume.renderer.enabled = false;
-                Background.renderer.enabled = false;
+                GameMenuSprite.GetComponent<UISprite>().enabled = true;
+                ToMenuSprite.GetComponent<UISprite>().enabled = false;
+                ResumeSprite.GetComponent<UISprite>().enabled = false;
+//                BackgroundSprite.GetComponent<UISprite>().enabled = false;
 
-                GameMenu.collider.enabled = true;
-                ToMenu.collider.enabled = false;
-                Resume.collider.enabled = false;
-                Background.collider.enabled = false;
+                GameMenuButton.collider.enabled = true;
+                ToMenuButton.collider.enabled = false;
+                ResumeButton.collider.enabled = false;
+//                BackgroundButton.collider.enabled = false;
             }
             else
             {
-                GameMenu.renderer.enabled = false;
-                ToMenu.renderer.enabled = true;
-                Resume.renderer.enabled = true;
-                Background.renderer.enabled = true;
+                GameMenuSprite.GetComponent<UISprite>().enabled = false;
+                ToMenuSprite.GetComponent<UISprite>().enabled = true;
+                ResumeSprite.GetComponent<UISprite>().enabled = true;
+//                BackgroundSprite.GetComponent<UISprite>().enabled = true;
 
-                GameMenu.collider.enabled = false;
-                ToMenu.collider.enabled = true;
-                Resume.collider.enabled = true;
-                Background.collider.enabled = true;
+                GameMenuButton.collider.enabled = false;
+                ToMenuButton.collider.enabled = true;
+                ResumeButton.collider.enabled = true;
+//                BackgroundSprite.collider.enabled = true;
             }
         }
 

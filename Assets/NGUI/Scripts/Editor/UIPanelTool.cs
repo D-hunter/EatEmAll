@@ -45,7 +45,7 @@ public class UIPanelTool : EditorWindow
 			foreach (UIPanel panel in panels)
 			{
 #if UNITY_3_4
-				PrefabType type = EditorUtility.GetPrefabType(panel.gameObject);
+				PrefabType type = EditorUtility.GetPrefabType(panel.go);
 #else
 				PrefabType type = PrefabUtility.GetPrefabType(panel.gameObject);
 #endif

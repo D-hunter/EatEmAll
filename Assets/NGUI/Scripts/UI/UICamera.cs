@@ -12,7 +12,7 @@ using System.Collections.Generic;
 /// - OnSelect (selected) is sent when a mouse button is released on the same object as it was pressed on.
 /// - OnClick is sent with the same conditions as OnSelect, with the added check to see if the mouse has not moved much.
 /// - OnDrag (delta) is sent when a mouse or touch gets pressed on a collider and starts dragging it.
-/// - OnDrop (gameObject) is sent when the mouse or touch get released on a different collider than the one that was being dragged.
+/// - OnDrop (go) is sent when the mouse or touch get released on a different collider than the one that was being dragged.
 /// - OnInput (text) is sent when typing after selecting a collider by clicking on it.
 /// - OnTooltip (show) is sent when the mouse hovers over a collider for some time without moving.
 /// </summary>

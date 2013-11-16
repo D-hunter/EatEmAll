@@ -159,7 +159,7 @@ public class UICameraTool : EditorWindow
 			if (c.name != "SceneCamera" && c.name != "Preview Camera")
 			{
 #if UNITY_3_4
-				PrefabType type = EditorUtility.GetPrefabType(c.gameObject);
+				PrefabType type = EditorUtility.GetPrefabType(c.go);
 #else
 				PrefabType type = PrefabUtility.GetPrefabType(c.gameObject);
 #endif

@@ -42,7 +42,7 @@ namespace Assets.Scripts.Other
             {
                 camera.orthographicSize = orthographicSize;
             }
-            Screen.SetResolution(600,1024,true);
+//            Screen.SetResolution(480,800,true);
         }
 
         private void SetPosition()

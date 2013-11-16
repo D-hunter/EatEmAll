@@ -6514,7 +6514,7 @@ public class iTween : MonoBehaviour{
 		}
 		if(includechildren){
 			foreach(Transform child in target.transform){
-				//Stop(child.gameObject,type,true);
+				//Stop(child.go,type,true);
 				StopByName(child.gameObject,name,true);
 			}			
 		}		
@@ -7120,7 +7120,7 @@ public class iTween : MonoBehaviour{
 	
 	void EnableKinematic(){
 		/*
-		if(gameObject.GetComponent(typeof(Rigidbody))){
+		if(go.GetComponent(typeof(Rigidbody))){
 			if(!rigidbody.isKinematic){
 				kinematic=true;
 				rigidbody.isKinematic=true;
