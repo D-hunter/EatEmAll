@@ -43,14 +43,14 @@ MonoBehaviour:
   - name: exit
     outer:
       serializedVersion: 2
-      x: 0
-      y: 34
+      x: 738
+      y: 932
       width: 92
       height: 92
     inner:
       serializedVersion: 2
-      x: 0
-      y: 34
+      x: 738
+      y: 932
       width: 0
       height: 0
     paddingLeft: 0
@@ -60,37 +60,54 @@ MonoBehaviour:
   - name: play
     outer:
       serializedVersion: 2
-      x: 128.300003
-      y: 154.100006
+      x: 642
+      y: 922
       width: 95
       height: 102
     inner:
       serializedVersion: 2
-      x: 128.300003
-      y: 154.100006
+      x: 642
+      y: 922
       width: 0
       height: 0
-    paddingLeft: .217391297
-    paddingRight: .173913047
-    paddingTop: .159999996
-    paddingBottom: .119999997
+    paddingLeft: .221052632
+    paddingRight: .178947374
+    paddingTop: .156862751
+    paddingBottom: .117647059
   - name: JoystickThumb
     outer:
       serializedVersion: 2
-      x: 0
-      y: 128.5
+      x: 513
+      y: 896
       width: 128
       height: 128
     inner:
       serializedVersion: 2
-      x: 0
-      y: 128.5
+      x: 513
+      y: 896
       width: 1
-      height: 1.00003052
-    paddingLeft: .0423728824
-    paddingRight: .0423728824
-    paddingTop: .0423728824
-    paddingBottom: .0423728824
+      height: 1
+    paddingLeft: .0390625
+    paddingRight: .0390625
+    paddingTop: .0390625
+    paddingBottom: .0390625
+  - name: MenuBackground
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 512
+      width: 512
+      height: 512
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 512
+      width: 512
+      height: 512
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   mCoordinates: 0
 --- !u!1001 &100100000
 Prefab:

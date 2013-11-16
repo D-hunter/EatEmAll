@@ -11,10 +11,8 @@ namespace Assets.Scripts.Game
         public Collider ResumeButton;
         public GameObject ToMenuSprite;
         public Collider ToMenuButton;
-//        public GameObject BackgroundSprite;
-//        public GameObject BackgroundButton;
-
-
+        public GameObject BackgroundSprite;
+        
         public bool _isGameMenuActive = false;
         public bool _isToMenuActive = false;
 
@@ -81,7 +79,7 @@ namespace Assets.Scripts.Game
                 GameMenuSprite.GetComponent<UISprite>().enabled = true;
                 ToMenuSprite.GetComponent<UISprite>().enabled = false;
                 ResumeSprite.GetComponent<UISprite>().enabled = false;
-//                BackgroundSprite.GetComponent<UISprite>().enabled = false;
+                BackgroundSprite.GetComponent<UISprite>().enabled = false;
 
                 GameMenuButton.collider.enabled = true;
                 ToMenuButton.collider.enabled = false;
@@ -93,12 +91,12 @@ namespace Assets.Scripts.Game
                 GameMenuSprite.GetComponent<UISprite>().enabled = false;
                 ToMenuSprite.GetComponent<UISprite>().enabled = true;
                 ResumeSprite.GetComponent<UISprite>().enabled = true;
-//                BackgroundSprite.GetComponent<UISprite>().enabled = true;
+                BackgroundSprite.GetComponent<UISprite>().enabled = true;
 
                 GameMenuButton.collider.enabled = false;
                 ToMenuButton.collider.enabled = true;
                 ResumeButton.collider.enabled = true;
-//                BackgroundSprite.collider.enabled = true;
+//                BackgroundButton.collider.enabled = true;
             }
         }
 
