@@ -3,20 +3,23 @@ using System.Collections;
 
 namespace Assets.Scripts.Game
 {
-	public class PauseController : MonoBehaviour {
-		void Update () 
-		{
-			if(Input.GetKeyUp(KeyCode.Escape))
-			{
-				if(!GameMenuButtonsController._isGameMenuActive)
-				{
-					GameMenuButtonsController.PushGameMenuButton();
-				}
-				else
-				{
-					GameMenuButtonsController.PushResumeButton();
-				}				
-			}		
-		}
-	}
+    public class PauseController : MonoBehaviour
+    {
+        public GameMenuButtonsController Controller;
+
+        private void Update()
+        {
+            if (Input.GetKeyUp(KeyCode.Escape))
+            {
+                if (!Controller._isGameMenuActive)
+                {
+                    Controller.PushGameMenuButton();
+                }
+                else
+                {
+                    Controller.PushResumeButton();
+                }
+            }
+        }
+    }
 }
