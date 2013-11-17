@@ -872,11 +872,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameMenuSprite: {fileID: 906044603}
-  GameMenuButton: {fileID: 540110557}
+  GameMenuButton: {fileID: 540110561}
   ResumeSprite: {fileID: 1650982634}
-  ResumeButton: {fileID: 694178973}
+  ResumeButton: {fileID: 694178977}
   ToMenuSprite: {fileID: 502642037}
-  ToMenuButton: {fileID: 182149316}
+  ToMenuButton: {fileID: 182149320}
   BackgroundSprite: {fileID: 2080158895}
   _isGameMenuActive: 0
   _isToMenuActive: 0

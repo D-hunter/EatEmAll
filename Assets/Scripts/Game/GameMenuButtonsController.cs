@@ -81,9 +81,9 @@ namespace Assets.Scripts.Game
                 ResumeSprite.GetComponent<UISprite>().enabled = false;
                 BackgroundSprite.GetComponent<UISprite>().enabled = false;
 
-                GameMenuButton.GetComponent<Collider>().enabled = true;
-                ToMenuButton.GetComponent<Collider>().enabled = false;
-                ResumeButton.GetComponent<Collider>().enabled = false;
+                GameMenuButton.collider.enabled = true;
+                ToMenuButton.collider.enabled = false;
+                ResumeButton.collider.enabled = false;
 //                BackgroundButton.collider.enabled = false;
             }
             else
@@ -93,9 +93,9 @@ namespace Assets.Scripts.Game
                 ResumeSprite.GetComponent<UISprite>().enabled = true;
                 BackgroundSprite.GetComponent<UISprite>().enabled = true;
 
-                GameMenuButton.GetComponent<Collider>().enabled = false;
-                ToMenuButton.GetComponent<Collider>().enabled = true;
-                ResumeButton.GetComponent<Collider>().enabled = true;
+                GameMenuButton.collider.enabled = false;
+                ToMenuButton.collider.enabled = true;
+                ResumeButton.collider.enabled = true;
 //                BackgroundButton.collider.enabled = true;
             }
         }
