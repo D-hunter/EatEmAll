@@ -9,12 +9,14 @@ namespace Assets.Scripts.Game
 				GameObject Menu;
 				GameObject Restart;
 				GameObject Background;
+				GameObject MenuButton;
 				// Use this for initialization
 				void Start ()
 				{
 						Menu = GameObject.Find ("Menu");
 						Restart = GameObject.Find ("Restart");	
 						Background = GameObject.Find("LoseMenuBackground");
+						MenuButton = GameObject.Find("MenuButton");
 						HideLoseMenu();					
 				}
 		
@@ -31,6 +33,9 @@ namespace Assets.Scripts.Game
 					Restart.collider.enabled = false;
 					Restart.GetComponentInChildren<UISprite> ().enabled = false;
 					Background.GetComponent<UISprite>().enabled = false;
+					MenuButton.collider.enabled = true;
+					MenuButton.GetComponentInChildren<UISprite>().enabled = true;
+					
 				}
 				
 				private void ShowLoseMenu()
@@ -40,25 +45,30 @@ namespace Assets.Scripts.Game
 					Restart.collider.enabled = true;
 					Restart.GetComponentInChildren<UISprite> ().enabled = true;	
 					Background.GetComponent<UISprite>().enabled = true;
+					MenuButton.collider.enabled = false;
+					MenuButton.GetComponentInChildren<UISprite>().enabled = false;
         		}
 
 				private void CheckIsLose ()
 				{
 						if (Game.IsLose) {
 							ShowLoseMenu();
-							//Game.DisableTocuhColliders();
+							Game.DisableTocuhColliders();
 						}
 				}
 				private void PushRestart()
-				{					
+				{				
 					HideLoseMenu();
-					//Game.EnableTouchColliders();
 					Game.SetDefaults();
-					Game.IsLose = false;
-					ScoreAndSatiety.Satiety = 50f;
-					ScoreAndSatiety.Scores = 0;
-					Time.timeScale = 1;
-					Application.LoadLevel(1);
+					Game.EnableTouchColliders();
+		            Application.LoadLevel(1);
+				}
+				private void PushMenu()
+				{
+					HideLoseMenu();
+					Game.SetDefaults();
+					Game.EnableTouchColliders();
+					Application.LoadLevel(0);
 				}
 				
 		}

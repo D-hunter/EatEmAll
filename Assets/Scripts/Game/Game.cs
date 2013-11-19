@@ -15,9 +15,9 @@ namespace Assets.Scripts.Game
 				public static float IncSatiety;
 				public static float IncSpeed;
 				
-				public GameObject TopCollider;
-				public GameObject MiddleCollider;
-				public GameObject BottomCollider;
+				public static GameObject TopCollider;
+				public static GameObject MiddleCollider;
+				public static GameObject BottomCollider;
 				// Use this for initialization
 				void  Start ()
 				{
@@ -25,21 +25,21 @@ namespace Assets.Scripts.Game
 					TopCollider = GameObject.FindGameObjectWithTag("top");
 					MiddleCollider = GameObject.FindGameObjectWithTag("center");
 					BottomCollider = GameObject.FindGameObjectWithTag("bottom");
-				}
-		
+        		}
+        
 				// Update is called once per frame
 				void Update ()
 				{
 		
 				}
 				
-				public void DisableTocuhColliders()
+				public static void DisableTocuhColliders()
 				{
 					TopCollider.GetComponent<BoxCollider>().collider.enabled = false;
 					MiddleCollider.GetComponent<BoxCollider>().collider.enabled = false;
 					BottomCollider.GetComponent<BoxCollider>().collider.enabled = false;	
 				}
-				public void EnableTouchColliders()
+				public static void EnableTouchColliders()
 				{
 					TopCollider.GetComponent<BoxCollider>().collider.enabled = true;
 					MiddleCollider.GetComponent<BoxCollider>().collider.enabled = true;
@@ -59,7 +59,14 @@ namespace Assets.Scripts.Game
 					DifficultSpeed = 1f;
 					DecSatiety = 0.35f;
 					IncSatiety = 0.2f;
-					IncSpeed = 0.1f;				
-				}
-		}
+					IncSpeed = 0.1f;	
+					
+					ScoreAndSatiety.Satiety = 50f;
+					ScoreAndSatiety.Scores = 0;	
+					
+					IsLose = false;	
+					
+					Time.timeScale=1;	
+        		}
+    }
 }

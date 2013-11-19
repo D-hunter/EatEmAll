@@ -37,7 +37,7 @@ namespace Assets.Scripts.Game
 
 				private void ShowScoreOnBox ()
 				{
-						ScoreLable.text = "Scores: " + Scores;
+						ScoreLable.text = Scores.ToString();
 				}
 
 				private void WhenToChangeScale ()
