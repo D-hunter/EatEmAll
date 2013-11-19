@@ -41,11 +41,21 @@ namespace Assets.Scripts.Game
 				private static void EndGame ()
 				{
 						Time.timeScale = 0;
+						Game.IsLose = true;
+						SaveRecord();
 				}
 				private void CheckDifficult ()
 				{
 						NextStage *= 2;
-						InsectInfo.DifficultUp ();
+						Game.DifficultUp ();
+				}
+				private static void SaveRecord()
+				{
+					int score = ScoreAndSatiety.Scores;
+					if(score>ShowRecords.BestScore)
+					{
+						ShowRecords.BestScore = score;
+					}
 				}
 		}
 			

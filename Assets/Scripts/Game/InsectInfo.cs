@@ -15,12 +15,7 @@ namespace Assets.Scripts.Game
 				public float OnEatSatietyDec = 0f;
 				public bool IsBonusInsect = false;
 
-				private static float DifficultDecSatiety = 1f;
-				private static float DifficultIncSatiety = 1f;
-				private static float DifficultSpeed = 1f;
-				private static float DecSatiety = 0.35f;
-				private static float IncSatiety = 0.2f;
-				private static float IncSpeed = 0.1f;
+
 		
 				public static int ControlParam = 1; 
 		
@@ -28,11 +23,11 @@ namespace Assets.Scripts.Game
 				{		
 						FlySound ();
 						CofSpeed = Screen.width / 1920f;
-						Speed = Speed * SpeedBonus * CofSpeed * DifficultSpeed;
+						Speed = Speed * SpeedBonus * CofSpeed * Game.DifficultSpeed;
 						OnDestroySatietySub *= ControlParam;
-						OnEatScoreAdd = BasicOnEatScoreAdd * ScoreMultiplier * (int)DifficultDecSatiety;
-						OnDestroySatietySub *= DifficultDecSatiety;
-						OnEatSatietyDec *= DifficultDecSatiety;
+						OnEatScoreAdd = BasicOnEatScoreAdd * ScoreMultiplier * (int)Game.DifficultDecSatiety;
+						OnDestroySatietySub *= Game.DifficultDecSatiety;
+						OnEatSatietyDec *= Game.DifficultDecSatiety;
 				}
 
 				private void Update ()
@@ -49,12 +44,6 @@ namespace Assets.Scripts.Game
 				{
 						audio.Play ();
 						audio.loop = true;
-				}
-				public static void DifficultUp ()
-				{
-						DifficultDecSatiety += DecSatiety;
-						DifficultIncSatiety += IncSatiety;
-						DifficultSpeed += IncSpeed;
 				}
 		}
 }
