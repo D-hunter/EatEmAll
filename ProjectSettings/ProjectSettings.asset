@@ -73,7 +73,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  iPhoneBundleIdentifier: com.Company.ProductName
+  iPhoneBundleIdentifier: com.MyCompany.MyProduct
   productGUID: be3774f120d6c3b44b744dc899e36d3c
   iPhoneBundleVersion: 1.0
   AndroidBundleVersionCode: 1
@@ -107,8 +107,15 @@ PlayerSettings:
   AndroidKeystoreName: 
   AndroidKeyaliasName: 
   resolutionDialogBanner: {fileID: 0}
-  m_BuildTargetIcons: []
-  m_BuildTargetBatching: []
+  m_BuildTargetIcons:
+  - m_BuildTarget: 
+    m_Icons:
+    - m_Icon: {fileID: 0}
+      m_Size: 128
+  m_BuildTargetBatching:
+  - m_BuildTarget: Android
+    m_StaticBatching: 1
+    m_DynamicBatching: 1
   webPlayerTemplate: APPLICATION:Default
   m_TemplateCustomTags: {}
   wiiRegion: 1
@@ -195,6 +202,6 @@ PlayerSettings:
   tizenCertificatePassword: 
   tizenSaveLogPath: 
   firstStreamedLevelWithResources: 0
-  unityRebuildLibraryVersion: 0
+  unityRebuildLibraryVersion: 9
   unityForwardCompatibleVersion: 39
   unityStandardAssetsVersion: 0
