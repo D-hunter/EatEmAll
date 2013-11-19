@@ -40,17 +40,20 @@ namespace Assets.Scripts.Game
 					Restart.collider.enabled = true;
 					Restart.GetComponentInChildren<UISprite> ().enabled = true;	
 					Background.GetComponent<UISprite>().enabled = true;
-        }
+        		}
 
 				private void CheckIsLose ()
 				{
 						if (Game.IsLose) {
 							ShowLoseMenu();
+							//Game.DisableTocuhColliders();
 						}
 				}
 				private void PushRestart()
 				{					
 					HideLoseMenu();
+					//Game.EnableTouchColliders();
+					Game.SetDefaults();
 					Game.IsLose = false;
 					ScoreAndSatiety.Satiety = 50f;
 					ScoreAndSatiety.Scores = 0;

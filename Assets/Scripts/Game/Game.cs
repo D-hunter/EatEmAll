@@ -8,12 +8,23 @@ namespace Assets.Scripts.Game
 
 				public static bool IsPause = false;
 				public static bool IsLose = false;
-
-				public GameMenuButtonsController Controller;
+				public static float DifficultDecSatiety;
+				public static float DifficultIncSatiety;
+				public static float DifficultSpeed;
+				public static float DecSatiety;
+				public static float IncSatiety;
+				public static float IncSpeed;
+				
+				public GameObject TopCollider;
+				public GameObject MiddleCollider;
+				public GameObject BottomCollider;
 				// Use this for initialization
 				void  Start ()
 				{
-		
+					SetDefaults();
+					TopCollider = GameObject.FindGameObjectWithTag("top");
+					MiddleCollider = GameObject.FindGameObjectWithTag("center");
+					BottomCollider = GameObject.FindGameObjectWithTag("bottom");
 				}
 		
 				// Update is called once per frame
@@ -21,21 +32,34 @@ namespace Assets.Scripts.Game
 				{
 		
 				}
-				public void CheckPause ()
-				{
-						if (Input.GetKeyUp (KeyCode.Escape)) {
-								if (!Controller._isGameMenuActive) {
-										Controller.PushGameMenuButton ();
-								} else {
-										Controller.PushResumeButton ();
-								}
-						}
-				}
 				
 				public void DisableTocuhColliders()
 				{
-				
+					TopCollider.GetComponent<BoxCollider>().collider.enabled = false;
+					MiddleCollider.GetComponent<BoxCollider>().collider.enabled = false;
+					BottomCollider.GetComponent<BoxCollider>().collider.enabled = false;	
 				}
-
+				public void EnableTouchColliders()
+				{
+					TopCollider.GetComponent<BoxCollider>().collider.enabled = true;
+					MiddleCollider.GetComponent<BoxCollider>().collider.enabled = true;
+					BottomCollider.GetComponent<BoxCollider>().collider.enabled = true;				
+				}
+				public static void DifficultUp ()
+				{
+					DifficultDecSatiety += DecSatiety;
+					DifficultIncSatiety += IncSatiety;
+					DifficultSpeed += IncSpeed;
+				}
+				
+				public static void SetDefaults()
+				{
+					DifficultDecSatiety = 1f;
+					DifficultIncSatiety = 1f;
+					DifficultSpeed = 1f;
+					DecSatiety = 0.35f;
+					IncSatiety = 0.2f;
+					IncSpeed = 0.1f;				
+				}
 		}
 }

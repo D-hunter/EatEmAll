@@ -47,7 +47,7 @@ namespace Assets.Scripts.Game
 				private void CheckDifficult ()
 				{
 						NextStage *= 2;
-						InsectInfo.DifficultUp ();
+						Game.DifficultUp ();
 				}
 				private static void SaveRecord()
 				{
