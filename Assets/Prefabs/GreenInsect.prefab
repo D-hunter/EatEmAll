@@ -15,7 +15,7 @@ GameObject:
   - 82: {fileID: 8200000}
   - 114: {fileID: 11400002}
   - 64: {fileID: 6400000}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: GreenInsect
   m_TagString: good
   m_Icon: {fileID: 0}
