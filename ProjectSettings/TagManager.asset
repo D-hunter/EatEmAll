@@ -4,6 +4,15 @@
 TagManager:
   tags:
   - 
+  - center
+  - top
+  - bottom
+  - bad
+  - good
+  - ExtraGreen
+  - ExtraYellow
+  - Bonus
+  - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
   Builtin Layer 2: Ignore Raycast
@@ -40,4 +49,8 @@ TagManager:
   - name: Default
     userID: 0
     uniqueID: 0
+    locked: 0
+  - name: Insects
+    userID: 1
+    uniqueID: 277044749
     locked: 0
