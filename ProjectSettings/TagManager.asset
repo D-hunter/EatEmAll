@@ -4,6 +4,15 @@
 TagManager:
   tags:
   - 
+  - center
+  - top
+  - bottom
+  - bad
+  - good
+  - ExtraGreen
+  - ExtraYellow
+  - Bonus
+  - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
   Builtin Layer 2: Ignore Raycast
@@ -14,7 +23,7 @@ TagManager:
   Builtin Layer 7: 
   User Layer 8: 2D UI
   User Layer 9: 3D UI
-  User Layer 10: 
+  User Layer 10: Notifications
   User Layer 11: 
   User Layer 12: 
   User Layer 13: 

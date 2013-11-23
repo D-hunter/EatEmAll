@@ -22,6 +22,8 @@ namespace Assets.Scripts.Game
 		private float DurationMultiplyScores = 8f;
 		private float DurationFastSpeed = 10f;
 		private float DurationFullSatiety = 8f;
+		
+		public TextMesh texte;
 		// Use this for initialization
 		void Start () {
 		
@@ -31,10 +33,12 @@ namespace Assets.Scripts.Game
 		void Update () 
 		{
 			CheckBonusActuality();
+			texte.text = ScoreAndSatiety.Satiety.ToString();
 		}
 		
 		void CheckBonusActuality()
 		{
+			CheckFullSatiety();
 			if(SlowSpeedActiv)
 			{
 				if(StartTimeSlowSpeed+DurationSlowSpeed<Time.time)
@@ -70,10 +74,18 @@ namespace Assets.Scripts.Game
 					StopFullSatiety();	 
 				}
 			}
-			if(FullSatietyActiv&&ScoreAndSatiety.Scores>100)
+			if(FullSatietyActiv&&ScoreAndSatiety.Scores<100)
 			{
 				ScoreAndSatiety.Scores = 100;	
 			}
+		}
+		
+		void CheckFullSatiety()
+		{
+			if(ScoreAndSatiety.Satiety==100)
+			{
+				StartFullSatiety();
+			}			
 		}
 		
 		public static void StartSlowSpeed()
@@ -87,7 +99,6 @@ namespace Assets.Scripts.Game
 			float slowSpeed = 0.7f;
 			InsectInfo.SpeedBonus = slowSpeed;
 		}
-		
 		public static void StartSwarm()
 		{
 			if(SwarmActiv) return;
@@ -103,7 +114,6 @@ namespace Assets.Scripts.Game
 			
 			InsectInfo.ControlParam = -1;
 		}
-		
 		public static void StartMultiplyScores()
 		{
 			if(MultiplyScoresActiv) return;
@@ -113,7 +123,6 @@ namespace Assets.Scripts.Game
 			byte scoreMultiplier = 2;
 			InsectInfo.ScoreMultiplier = scoreMultiplier;
 		}
-		
 		public static void StartFastSpeed()
 		{
 			if(FastSpeedActiv) return;
@@ -125,19 +134,17 @@ namespace Assets.Scripts.Game
 			float fastSpeed = 1.7f;
 			InsectInfo.SpeedBonus = fastSpeed;
 		}
-		
 		public static void StartFullSatiety()
-		{
+		{		
 			if(FullSatietyActiv) return;
-			
+			Debug.Log("START FULL SATIETY!!!");
 			if(MultiplyScoresActiv) StopMultiplyScores();
 			FullSatietyActiv = true;
 			StartTimeFullSatiety = Time.time;
 			
 			byte scoreMultiplier = 2;
 			InsectInfo.ScoreMultiplier = scoreMultiplier;			
-		}
-		
+		}	
 		private static void StopSlowSpeed()
 		{
 			SlowSpeedActiv = false;
@@ -145,7 +152,6 @@ namespace Assets.Scripts.Game
 			float standartSpeed = 1f;			
 			InsectInfo.SpeedBonus = standartSpeed;
 		}
-		
 		private static void StopSwarm ()
 		{
 			SwarmActiv = false;
@@ -160,16 +166,14 @@ namespace Assets.Scripts.Game
 			InsectsGenerator.SpawnDelayMultiplier = 1;
 			
 			InsectInfo.ControlParam = 1;
-		}//		
-		
+		}//			
 		private static void StopFastSpeed()
 		{
 			FastSpeedActiv = false;
 			StartTimeFastSpeed = 0f;
 			float standartSpeed = 1f;
 			InsectInfo.SpeedBonus = standartSpeed;
-		}
-		
+		}		
 		private static void StopMultiplyScores ()
 		{
 			MultiplyScoresActiv = false;
@@ -177,10 +181,11 @@ namespace Assets.Scripts.Game
 			byte standartMultiply = 1;
 			Generator.ScoreBonus = standartMultiply;
 		}
-		
 		private static void StopFullSatiety()
 		{
+			Debug.Log("STOOOOOP FULL SATIETY!!!");
 			FullSatietyActiv = false;
+			ScoreAndSatiety.Satiety = 50f;
 			StartTimeFullSatiety = 0f;
 			byte standartMultiply = 1;
 			Generator.ScoreBonus = standartMultiply;

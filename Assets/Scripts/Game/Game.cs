@@ -30,7 +30,7 @@ namespace Assets.Scripts.Game
 				// Update is called once per frame
 				void Update ()
 				{
-		
+					
 				}
 				
 				public static void DisableTocuhColliders()
@@ -67,6 +67,8 @@ namespace Assets.Scripts.Game
 					IsLose = false;	
 					
 					Time.timeScale=1;	
+					
+					InsectsGenerator.NextStage = 200;
         		}
     }
 }

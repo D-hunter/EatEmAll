@@ -21,6 +21,7 @@ namespace Assets.Scripts.Game
 
 				private void ChooseAndPerformBonus ()
 				{
+						
 						float controlParameter = Random.value;
 						if (controlParameter <= 0.25f) {
 								Bonus.StartSlowSpeed ();
@@ -34,14 +35,15 @@ namespace Assets.Scripts.Game
 						if (controlParameter > 0.75f && controlParameter <= 1f) {
 								Bonus.StartSwarm ();
 						}
+						Notification.ShowBonus();
 				}
 
 				private void ChangeSatiety (int satiety)
 				{
-						if (ScoreAndSatiety.Satiety > 100) {
-								ScoreAndSatiety.Satiety = 100;
-						} else if (ScoreAndSatiety.Satiety < 0) {
-								ScoreAndSatiety.Satiety = 0;
+						if (ScoreAndSatiety.Satiety > 100f) {
+								ScoreAndSatiety.Satiety = 100f;
+						} else if (ScoreAndSatiety.Satiety < 0f) {
+								ScoreAndSatiety.Satiety = 0f;
 						} else {
 								ScoreAndSatiety.Satiety += satiety;
 						}

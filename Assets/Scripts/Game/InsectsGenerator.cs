@@ -13,7 +13,7 @@ namespace Assets.Scripts.Game
 				private static float _randomTime;
 				public float SpawnDelay;
 				float CurrentTime;
-				private int NextStage = 200;
+				public static int NextStage = 200;
 		
 				private void Start ()
 				{
