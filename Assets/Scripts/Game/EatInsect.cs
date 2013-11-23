@@ -5,7 +5,7 @@ namespace Assets.Scripts.Game
 		public class EatInsect : MonoBehaviour
 		{
 		
-				private void OnTriggerEnter (Collider insect)
+				private void OnTriggerEnter2D (Collider2D insect)
 				{
 						var score = insect.gameObject.GetComponent<InsectInfo> ().OnEatScoreAdd;
 						var satietyInc = insect.gameObject.GetComponent<InsectInfo> ().OnEatSatietyAdd;

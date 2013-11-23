@@ -5,7 +5,7 @@ namespace Assets.Scripts.Game
 {
     public class DestroyTrigger : MonoBehaviour
     {
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
             var satiety = other.gameObject.GetComponent<InsectInfo>().OnDestroySatietySub;
             ScoreAndSatiety.Satiety += satiety;

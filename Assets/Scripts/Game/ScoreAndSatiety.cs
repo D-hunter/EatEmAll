@@ -31,7 +31,7 @@ namespace Assets.Scripts.Game
 
 				private void InitializeScale ()
 				{
-						SatietyScale.transform.localScale = new Vector3 (SatietyScale.transform.localScale.x, Satiety * 2, SatietyScale.transform.localScale.z);
+						SatietyScale.transform.localScale = new Vector3 (SatietyScale.transform.localScale.x, Satiety / 2, SatietyScale.transform.localScale.z);
 						_oldSatietyScale = SatietyScale.transform.localScale;
 				}
 
@@ -57,7 +57,7 @@ namespace Assets.Scripts.Game
 
 				private void ChangeScaleSize (int offsetDirection)
 				{
-						SatietyScale.transform.localScale = new Vector3 (SatietyScale.transform.localScale.x, Satiety * 2, SatietyScale.transform.localScale.z);
+						SatietyScale.transform.localScale = new Vector3 (SatietyScale.transform.localScale.x, Satiety / 2, SatietyScale.transform.localScale.z);
 
 						float possitionOffset = (_oldSatietyScale.y - SatietyScale.transform.localScale.y) / 2;
 
